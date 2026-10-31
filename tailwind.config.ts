@@ -22,8 +22,11 @@ const config: Config = {
           secondary: "#4A4A50",
           muted: "#6B6B72",
         },
-        // Accent: used sparingly (hero eyebrow). Same deep green as the "Active" chip.
-        accent: "#0A6B33",
+        // Accent: eyebrows and primary buttons. Same deep green as the "Active" chip.
+        accent: {
+          DEFAULT: "#0A6B33", // eyebrows, primary buttons
+          hover: "#08572A",
+        },
         status: {
           "active-bg": "#E6F4EA",
           "active-fg": "#0A6B33",

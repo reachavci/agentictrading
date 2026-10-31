@@ -9,8 +9,12 @@ static site, so it's fast and cheap to host on Vercel.
 **All text lives in one file: [`content/site.ts`](content/site.ts).** You don't need to touch anything else.
 
 - **Company name:** change `SITE_NAME = "[Name]"` at the top. It updates the header, page title and share preview.
+- **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
+- **Menu links:** edit `header.nav`.
+- **Solutions:** edit `solutions.items` (icon must be `"broker"`, `"exchange"` or `"bank"`).
+- **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
 - **Security:** edit `security`. The `featured` block is the wide card at the top; each of the six `items` needs an `icon` from the list in the comment.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and 3 `plan` rows. You can add or remove examples, and the counter adjusts.
 - **Agent cards:** edit `agents`. `status` must be one of `"active"`, `"awaiting"`, `"paused"` or `"blocked"`.
@@ -49,10 +53,14 @@ app/
   page.tsx          Puts the sections together in order
   globals.css       Base styles and focus outlines
 components/
-  Header.tsx        Logo + "Request a demo"
+  Header.tsx        Sticky header: logo, menu links (active one highlighted), mobile menu, "Request a demo"
   Hero.tsx          Headline, subline, chat card, demo button
   HowItWorks.tsx    Four numbered steps
   Security.tsx      Featured card + six security cards
+  Solutions.tsx     Three audience cards
+  Demo.tsx          "See it in action" section
+  DemoForm.tsx      Demo form (opens the visitor's email app for now)
+  ui.ts             Shared primary button style
   SectionHeader.tsx Eyebrow, heading and intro used by each section
   Reveal.tsx        Fade-up when a section scrolls into view
   ChatDemo.tsx      The animated chat (typing → plan → approval loop)
@@ -73,9 +81,9 @@ next.config.ts      Static export settings
 
 ## Behaviour notes
 
-- **Design:** light theme, Geist and Geist Mono fonts, near-black text and buttons. Colour is used only for status chips (green = active/approved, amber = awaiting, grey = paused, red = blocked). All colours are in `tailwind.config.ts`.
+- **Design:** light theme, Geist and Geist Mono fonts, near-black text and buttons. Deep green is the accent (eyebrows and "Request a demo" buttons); other colour is used only for status chips (green = active/approved, amber = awaiting, grey = paused, red = blocked). All colours are in `tailwind.config.ts`.
 - **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, no scroll fade-ins, and a grid of agent cards instead of the moving strip.
-- **Demo form:** "Request a demo" currently just scrolls to the button in the hero. A `TODO` in `components/Hero.tsx` marks where a real form will go.
+- **Demo form:** there's no backend yet. Submitting opens the visitor's email app with their details filled in, addressed to `DEMO_EMAIL`, then shows a confirmation. `TODO`s in `content/site.ts` and `components/DemoForm.tsx` mark where to plug in a real form service.
 - No analytics or tracking is included.
 
 ## Deploy on Vercel

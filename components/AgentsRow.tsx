@@ -14,12 +14,12 @@ export default function AgentsRow() {
   const animate = reduce === false;
 
   return (
-    <section id="agents" aria-labelledby="agents-title" className="scroll-mt-16 border-t border-line py-20 sm:py-28">
+    <section id="agents" aria-labelledby="agents-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
       <SectionHeader id="agents-title" eyebrow={agentsSection.eyebrow} title={agentsSection.title} text={agentsSection.text} />
 
       <Reveal delay={0.08}>
         {marquee ? (
-          <div className="group relative mt-14 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
+          <div className="group relative mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
             <div className={`flex w-max ${animate ? "animate-marquee group-hover:[animation-play-state:paused]" : ""}`}>
               <ul className="flex">
                 {agents.map((agent) => (
@@ -40,7 +40,7 @@ export default function AgentsRow() {
             </div>
           </div>
         ) : (
-          <ul className="mx-auto mt-14 grid max-w-[1200px] grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 px-5 sm:px-8">
+          <ul className="mx-auto mt-12 grid max-w-[1200px] grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 px-5 sm:px-8">
             {agents.map((agent) => (
               <li key={agent.name}>
                 <AgentCard agent={agent} />

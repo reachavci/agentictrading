@@ -87,3 +87,45 @@ export const SecurityIcons = {
     </Stroke>
   ),
 };
+
+export function MenuIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}
+      strokeLinecap="round" aria-hidden="true" {...props}>
+      <path d="M4 8h16M4 16h16" />
+    </svg>
+  );
+}
+
+export function CloseIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}
+      strokeLinecap="round" aria-hidden="true" {...props}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  );
+}
+
+/** Icons for the solutions cards, keyed by the `icon` names in content/site.ts. */
+export const SolutionIcons = {
+  // Candlestick chart
+  broker: (p: IconProps) => (
+    <Stroke {...p}>
+      <path d="M7 4v3M7 15v5M17 4v6M17 17v3" />
+      <rect x="5" y="7" width="4" height="8" rx="1" />
+      <rect x="15" y="10" width="4" height="7" rx="1" />
+    </Stroke>
+  ),
+  // Two arrows swapping
+  exchange: (p: IconProps) => (
+    <Stroke {...p}>
+      <path d="M4 8h14l-3-3M20 16H6l3 3" />
+    </Stroke>
+  ),
+  // Bank building
+  bank: (p: IconProps) => (
+    <Stroke {...p}>
+      <path d="M3 9.5L12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" />
+    </Stroke>
+  ),
+};

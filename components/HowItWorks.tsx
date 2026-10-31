@@ -6,10 +6,10 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" aria-labelledby="how-title" className="scroll-mt-16 border-t border-line py-20 sm:py-28">
+    <section id="how-it-works" aria-labelledby="how-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
       <SectionHeader id="how-title" eyebrow={howItWorks.eyebrow} title={howItWorks.title} />
 
-      <Reveal className="mx-auto mt-14 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
+      <Reveal className="mx-auto mt-12 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
         <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {howItWorks.steps.map((step, i) => (
             <li

@@ -7,6 +7,11 @@
 // Change this one line to rename the company everywhere on the site.
 export const SITE_NAME = "[Name]";
 
+// ── Demo requests ───────────────────────────────────────────────
+// Where demo requests go. The form opens the visitor's email app addressed here.
+// TODO: replace the email-app approach with a real form service (e.g. Formspree, HubSpot).
+export const DEMO_EMAIL = "[your email]";
+
 // Public URL of the site (used for social-share previews).
 // Vercel sets VERCEL_PROJECT_PRODUCTION_URL automatically; you can also
 // set NEXT_PUBLIC_SITE_URL in Vercel → Settings → Environment Variables.
@@ -28,6 +33,13 @@ export const seo = {
 export const header = {
   ctaLabel: "Request a demo",
   ctaHref: "#demo",
+  menuLabel: "Menu",
+  // Menu links; each scrolls to the section with that id.
+  nav: [
+    { label: "Product", href: "#how-it-works" },
+    { label: "Security", href: "#security" },
+    { label: "Solutions", href: "#solutions" },
+  ],
 };
 
 // ── Hero ────────────────────────────────────────────────────────
@@ -39,6 +51,7 @@ export const hero = {
     "No trade runs without their approval.",
     "No agent goes beyond their limits.",
   ],
+  audience: "For brokers, exchanges and fintechs.",
   chatLabel: "Agent",
   ctaLabel: "Request a demo",
   secondaryCtaLabel: "How it works",
@@ -148,6 +161,20 @@ export const security = {
   ] satisfies { icon: SecurityIcon; title: string; text: string }[],
 };
 
+// ── Solutions ───────────────────────────────────────────────────
+// icon must be one of: "broker", "exchange", "bank"
+export type SolutionIcon = "broker" | "exchange" | "bank";
+
+export const solutions = {
+  eyebrow: "Solutions",
+  title: "Built for platforms that move money",
+  items: [
+    { icon: "broker", title: "Brokers", text: "Let your users trade stocks by typing or speaking, under your brand." },
+    { icon: "exchange", title: "Crypto exchanges", text: "Add an AI trading assistant with limits, approvals and a full audit trail." },
+    { icon: "bank", title: "Fintechs and banks", text: "Offer AI money features without letting agents act on their own." },
+  ] satisfies { icon: SolutionIcon; title: string; text: string }[],
+};
+
 // ── Agents row ──────────────────────────────────────────────────
 export type AgentStatus = "active" | "awaiting" | "paused" | "blocked";
 
@@ -187,4 +214,21 @@ export const agents: Agent[] = [
 export const footer = {
   tagline: "Security layer for agentic trading",
   copyright: `© ${new Date().getFullYear()} ${SITE_NAME}`,
+};
+
+// ── Request a demo ──────────────────────────────────────────────
+export const demo = {
+  title: "See it in action",
+  text: "Book a short demo and bring your hardest trading commands.",
+  fields: {
+    name: { label: "Name", placeholder: "Jane Smith" },
+    company: { label: "Company", placeholder: "Acme Securities" },
+    role: { label: "Role", placeholder: "Head of Product" },
+    email: { label: "Work email", placeholder: "jane@acme.com" },
+  },
+  submitLabel: "Request a demo",
+  emailSubject: "Demo request",
+  confirmTitle: "Thanks, your email is ready to send",
+  confirmText: "Your email app should have opened with your details. Press send and we'll get back to you.",
+  confirmFallback: "Nothing opened? Email us directly at",
 };

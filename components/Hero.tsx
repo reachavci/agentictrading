@@ -1,10 +1,11 @@
 import { hero } from "@/content/site";
 import ChatDemo from "./ChatDemo";
 import { ArrowRightIcon } from "./icons";
+import { primaryButton } from "./ui";
 
 export default function Hero() {
   return (
-    <section className="pb-20 pt-12 sm:pb-28 sm:pt-16 lg:pt-24">
+    <section className="pb-16 pt-12 sm:pb-24 sm:pt-16 lg:pt-24">
       <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,540px)] xl:gap-16">
         {/* Text */}
         <div className="min-w-0">
@@ -20,14 +21,10 @@ export default function Hero() {
               </span>
             ))}
           </p>
+          <p className="mt-4 text-[15px] text-ink-muted">{hero.audience}</p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
-            {/* TODO: replace this anchor with a real demo request form (e.g. email + company) */}
-            <a
-              id="demo"
-              href="#demo"
-              className="inline-flex h-12 scroll-mt-[40vh] items-center rounded-pill bg-ink px-6 text-[15px] font-medium text-white transition-colors hover:bg-ink-secondary"
-            >
+            <a href="#demo" className={`${primaryButton} h-12 px-7 text-base`}>
               {hero.ctaLabel}
             </a>
             <a
