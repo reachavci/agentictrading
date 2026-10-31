@@ -130,7 +130,7 @@ export const howItWorks = {
   title: "From a sentence to a trade, with your users in control",
   // Shown in order; step numbers (01–04) are added automatically.
   steps: [
-    { title: "Say it", text: "Users type or speak in plain language: 'Buy $500 of Nvidia every Friday.'" },
+    { title: "Say it", text: 'Users type or speak in plain language: "Buy $500 of Nvidia every Friday."' },
     { title: "Review plan", text: "An agent turns it into a clear plan: asset, amount, trigger and limits. If anything is missing, it asks." },
     { title: "Approve", text: "Nothing runs until users approve. Every order, every time." },
     { title: "Track", text: "Every action appears in a live feed, including checks that didn't trigger, and why." },
@@ -146,10 +146,10 @@ export const security = {
   title: "Built so an agent can't do what your users didn't ask for",
   subline: "Security isn't a feature we added. It's how our whole system works.",
   featured: {
-    title: "AI never places trades",
-    text: "It only drafts plans. After approval, fixed rules execute them, so nothing is left to model judgment.",
+    title: "AI plans. Users approve. Rules execute.",
+    text: "The AI turns a request into a plan. Only after the user approves do fixed rules carry it out, so the model never acts on its own judgment.",
     // Small three-step diagram shown inside the featured card.
-    flow: ["AI drafts plan", "User approves", "Fixed rules execute"],
+    flow: ["AI plans", "User approves", "Rules execute"],
   },
   items: [
     { icon: "identity", title: "Every agent has an identity", text: "You always know which agent acted, and for whom." },

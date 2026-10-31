@@ -2,6 +2,7 @@ import { hero } from "@/content/site";
 import ChatDemo from "./ChatDemo";
 import { ArrowRightIcon } from "./icons";
 import { primaryButton } from "./ui";
+import Sentences from "./Sentences";
 
 export default function Hero() {
   return (
@@ -14,12 +15,8 @@ export default function Hero() {
             {hero.title}
           </h1>
           <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary sm:text-xl">
-            {hero.subline.map((line, i) => (
-              <span key={i} className="sm:block">
-                {i > 0 && " "}
-                {line}
-              </span>
-            ))}
+            {/* One sentence per line on wider screens; on phones each sentence stays together */}
+            <Sentences text={hero.subline} className="sm:block" />
           </p>
           <p className="mt-4 text-[15px] text-ink-muted">{hero.audience}</p>
 

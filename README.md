@@ -63,6 +63,7 @@ components/
   ui.ts             Shared primary button style
   SectionHeader.tsx Eyebrow, heading and intro used by each section
   Reveal.tsx        Fade-up when a section scrolls into view
+  Sentences.tsx     Keeps each sentence together when text wraps
   ChatDemo.tsx      The animated chat (typing → plan → approval loop)
   PlanCard.tsx      "Proposed plan" box
   StatusChip.tsx    Active / Awaiting approval / Paused / Blocked / Approved

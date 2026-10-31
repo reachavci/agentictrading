@@ -2,6 +2,7 @@ import { security, type SecurityIcon } from "@/content/site";
 import { ArrowRightIcon, SecurityIcons } from "./icons";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
+import Sentences from "./Sentences";
 
 const flowStyles = [
   "bg-surface text-ink-secondary", // AI drafts the plan
@@ -26,7 +27,7 @@ export default function Security() {
           <div className="rounded-card border border-accent/25 bg-bg p-7 shadow-[0_0_0_5px_rgba(10,107,51,0.05),0_24px_48px_-28px_rgba(10,107,51,0.35)] sm:p-10 xl:grid xl:grid-cols-[minmax(0,1fr)_auto] xl:items-center xl:gap-12">
             <div>
               <h3 className="text-[28px] font-semibold leading-[1.1] tracking-[-0.035em] text-ink sm:text-[36px]">
-                {featured.title}
+                <Sentences text={featured.title} />
               </h3>
               <p className="mt-3 max-w-[52ch] text-lg leading-relaxed text-ink-secondary">{featured.text}</p>
             </div>
