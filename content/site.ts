@@ -20,7 +20,7 @@ export const SITE_URL =
 export const seo = {
   title: `${SITE_NAME} · Let your users trade by typing or speaking`,
   description:
-    "Agentic trading for brokers and exchanges, with security built in: every agent identified, every action approved, every order traceable.",
+    "Agentic trading for brokers and exchanges. No trade runs without your users' approval. No agent goes beyond their limits.",
   ogImage: "/og-image.png", // placeholder; replace public/og-image.png later
 };
 
@@ -34,8 +34,11 @@ export const header = {
 export const hero = {
   eyebrow: "Security layer for agentic trading",
   title: "Let your users trade by typing or speaking.",
-  subline:
-    "With security built in: every agent identified, every action approved, every order traceable.",
+  // Each entry is one line on desktop; on phones they flow together and wrap naturally.
+  subline: [
+    "No trade runs without their approval.",
+    "No agent goes beyond their limits.",
+  ],
   chatLabel: "Agent",
   ctaLabel: "Request a demo",
   secondaryCtaLabel: "How it works",

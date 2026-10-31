@@ -12,8 +12,13 @@ export default function Hero() {
           <h1 className="mt-5 text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[60px] lg:text-[60px] xl:text-[80px]">
             {hero.title}
           </h1>
-          <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary [text-wrap:balance] sm:text-xl">
-            {hero.subline}
+          <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary sm:text-xl">
+            {hero.subline.map((line, i) => (
+              <span key={i} className="sm:block">
+                {i > 0 && " "}
+                {line}
+              </span>
+            ))}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
