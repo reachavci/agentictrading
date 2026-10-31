@@ -46,6 +46,12 @@ const config: Config = {
         input: "12px",
         chip: "10px",
       },
+      keyframes: {
+        blink: { "0%, 49%": { opacity: "1" }, "50%, 100%": { opacity: "0" } },
+      },
+      animation: {
+        blink: "blink 1s step-end infinite",
+      },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
