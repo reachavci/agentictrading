@@ -1,42 +1,54 @@
+"use client";
+
 import { agents, agentsSection } from "@/content/site";
 import AgentCard from "./AgentCard";
+import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
+import { useReducedMotionSafe } from "./useReducedMotionSafe";
 
 export default function AgentsRow() {
+  const reduce = useReducedMotionSafe();
+  // The page HTML contains the 8 cards once. For the endless scroll, a second,
+  // aria-hidden copy is added in the browser only. With reduce motion: a static grid.
+  const marquee = reduce !== true;
+  const animate = reduce === false;
+
   return (
     <section id="agents" aria-labelledby="agents-title" className="scroll-mt-16 border-t border-line py-20 sm:py-28">
-      <div className="mx-auto grid max-w-[1200px] gap-6 px-5 sm:px-8 lg:grid-cols-2 lg:items-end lg:gap-16">
-        <div>
-          <p className="text-sm font-medium text-ink-muted">{agentsSection.eyebrow}</p>
-          <h2 id="agents-title" className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.04em] text-ink sm:text-[48px]">
-            {agentsSection.title}
-          </h2>
-        </div>
-        <p className="max-w-[42ch] text-lg leading-relaxed text-ink-secondary lg:justify-self-end">{agentsSection.text}</p>
-      </div>
+      <SectionHeader id="agents-title" eyebrow={agentsSection.eyebrow} title={agentsSection.title} text={agentsSection.text} />
 
-      {/* Moving strip (normal motion). The list is rendered twice for a seamless loop. */}
-      <div className="group relative mt-14 overflow-hidden motion-reduce:hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
-        <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
-          {[0, 1].map((copy) => (
-            <ul key={copy} className="flex" aria-hidden={copy === 1 ? true : undefined}>
-              {agents.map((agent) => (
-                <li key={agent.name} className="w-[320px] shrink-0 pr-4">
-                  <AgentCard agent={agent} />
-                </li>
-              ))}
-            </ul>
-          ))}
-        </div>
-      </div>
-
-      {/* Static grid (reduced motion) */}
-      <ul className="mx-auto mt-14 hidden max-w-[1200px] grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 px-5 motion-reduce:grid sm:px-8">
-        {agents.map((agent) => (
-          <li key={agent.name}>
-            <AgentCard agent={agent} />
-          </li>
-        ))}
-      </ul>
+      <Reveal delay={0.08}>
+        {marquee ? (
+          <div className="group relative mt-14 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)]">
+            <div className={`flex w-max ${animate ? "animate-marquee group-hover:[animation-play-state:paused]" : ""}`}>
+              <ul className="flex">
+                {agents.map((agent) => (
+                  <li key={agent.name} className="w-[320px] shrink-0 pr-4">
+                    <AgentCard agent={agent} />
+                  </li>
+                ))}
+              </ul>
+              {animate && (
+                <ul className="flex" aria-hidden="true">
+                  {agents.map((agent) => (
+                    <li key={agent.name} className="w-[320px] shrink-0 pr-4">
+                      <AgentCard agent={agent} />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        ) : (
+          <ul className="mx-auto mt-14 grid max-w-[1200px] grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-4 px-5 sm:px-8">
+            {agents.map((agent) => (
+              <li key={agent.name}>
+                <AgentCard agent={agent} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </Reveal>
     </section>
   );
 }

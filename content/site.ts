@@ -42,7 +42,7 @@ export const hero = {
   chatLabel: "Agent",
   ctaLabel: "Request a demo",
   secondaryCtaLabel: "How it works",
-  secondaryCtaHref: "#agents",
+  secondaryCtaHref: "#how-it-works",
   statusAwaiting: "Awaiting approval",
   statusApproved: "Approved ✓",
   planTitle: "Proposed plan",
@@ -110,6 +110,43 @@ export const chatExamples: ChatExample[] = [
     ],
   },
 ];
+
+// ── How it works ────────────────────────────────────────────────
+export const howItWorks = {
+  eyebrow: "How it works",
+  title: "From a sentence to a trade, with your users in control.",
+  // Shown in order; step numbers (01–04) are added automatically.
+  steps: [
+    { title: "Say it", text: "Users type or speak in plain language: 'Buy $500 of Nvidia every Friday.'" },
+    { title: "Review the plan", text: "The agent turns it into a clear plan: asset, amount, trigger and limits. If anything is missing, it asks." },
+    { title: "Approve", text: "Nothing runs until the user approves. Every order, every time." },
+    { title: "Track", text: "Every action appears in a live feed, including checks that didn't trigger, and why." },
+  ],
+};
+
+// ── Security ────────────────────────────────────────────────────
+// icon must be one of: "identity", "approval", "limits", "alert", "record", "stop"
+export type SecurityIcon = "identity" | "approval" | "limits" | "alert" | "record" | "stop";
+
+export const security = {
+  eyebrow: "Security",
+  title: "Built so an agent can't do what your users didn't ask for.",
+  subline: "Security isn't a feature we added. It's how the whole system works.",
+  featured: {
+    title: "The AI never places trades.",
+    text: "It only drafts the plan. After approval, fixed rules execute it, so nothing is left to the model's judgment.",
+    // Small three-step diagram shown inside the featured card.
+    flow: ["AI drafts the plan", "User approves", "Fixed rules execute"],
+  },
+  items: [
+    { icon: "identity", title: "Every agent has an identity", text: "You always know which agent acted, and for whom." },
+    { icon: "approval", title: "Nothing runs without approval", text: "Users confirm every plan before it executes." },
+    { icon: "limits", title: "Limits users set", text: "Budgets, assets and frequency caps the agent can't exceed." },
+    { icon: "alert", title: "Mistakes and manipulation caught", text: "Unusual amounts and suspicious instructions are flagged or blocked." },
+    { icon: "record", title: "Everything recorded", text: "A tamper-proof trail of every command, approval and order." },
+    { icon: "stop", title: "One tap stops everything", text: "Pause any agent, or all of them, instantly." },
+  ] satisfies { icon: SecurityIcon; title: string; text: string }[],
+};
 
 // ── Agents row ──────────────────────────────────────────────────
 export type AgentStatus = "active" | "awaiting" | "paused" | "blocked";

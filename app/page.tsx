@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import HowItWorks from "@/components/HowItWorks";
+import Security from "@/components/Security";
 import AgentsRow from "@/components/AgentsRow";
 import Footer from "@/components/Footer";
 
@@ -9,6 +11,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <HowItWorks />
+        <Security />
         <AgentsRow />
       </main>
       <Footer />

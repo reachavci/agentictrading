@@ -10,6 +10,8 @@ static site, so it's fast and cheap to host on Vercel.
 
 - **Company name:** change `SITE_NAME = "[Name]"` at the top. It updates the header, page title and share preview.
 - **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
+- **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
+- **Security:** edit `security`. The `featured` block is the wide card at the top; each of the six `items` needs an `icon` from the list in the comment.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and 3 `plan` rows. You can add or remove examples, and the counter adjusts.
 - **Agent cards:** edit `agents`. `status` must be one of `"active"`, `"awaiting"`, `"paused"` or `"blocked"`.
 
@@ -49,13 +51,17 @@ app/
 components/
   Header.tsx        Logo + "Request a demo"
   Hero.tsx          Headline, subline, chat card, demo button
+  HowItWorks.tsx    Four numbered steps
+  Security.tsx      Featured card + six security cards
+  SectionHeader.tsx Eyebrow, heading and intro used by each section
+  Reveal.tsx        Fade-up when a section scrolls into view
   ChatDemo.tsx      The animated chat (typing → plan → approval loop)
   PlanCard.tsx      "Proposed plan" box
   StatusChip.tsx    Active / Awaiting approval / Paused / Blocked / Approved
   AgentsRow.tsx     "Agents under control" section + scrolling strip
   AgentCard.tsx     One agent card
   Footer.tsx        Name, tagline, demo link, copyright
-  icons.tsx         Shield and arrow icons
+  icons.tsx         Shield, arrow and security icons
   useReducedMotionSafe.ts  Reads the visitor's "reduce motion" setting
 content/
   site.ts           ← ALL text, prompts, plans and agents
@@ -68,7 +74,7 @@ next.config.ts      Static export settings
 ## Behaviour notes
 
 - **Design:** light theme, Geist and Geist Mono fonts, near-black text and buttons. Colour is used only for status chips (green = active/approved, amber = awaiting, grey = paused, red = blocked). All colours are in `tailwind.config.ts`.
-- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved and a grid of agent cards instead of the moving strip.
+- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, no scroll fade-ins, and a grid of agent cards instead of the moving strip.
 - **Demo form:** "Request a demo" currently just scrolls to the button in the hero. A `TODO` in `components/Hero.tsx` marks where a real form will go.
 - No analytics or tracking is included.
 
