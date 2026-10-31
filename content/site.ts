@@ -33,7 +33,7 @@ export const header = {
 // ── Hero ────────────────────────────────────────────────────────
 export const hero = {
   eyebrow: "Security layer for agentic trading",
-  title: "Let your users trade by typing or speaking.",
+  title: "Let your users trade by typing or speaking",
   // Each entry is one line on desktop; on phones they flow together and wrap naturally.
   subline: [
     "No trade runs without their approval.",
@@ -114,7 +114,7 @@ export const chatExamples: ChatExample[] = [
 // ── How it works ────────────────────────────────────────────────
 export const howItWorks = {
   eyebrow: "How it works",
-  title: "From a sentence to a trade, with your users in control.",
+  title: "From a sentence to a trade, with your users in control",
   // Shown in order; step numbers (01–04) are added automatically.
   steps: [
     { title: "Say it", text: "Users type or speak in plain language: 'Buy $500 of Nvidia every Friday.'" },
@@ -130,10 +130,10 @@ export type SecurityIcon = "identity" | "approval" | "limits" | "alert" | "recor
 
 export const security = {
   eyebrow: "Security",
-  title: "Built so an agent can't do what your users didn't ask for.",
+  title: "Built so an agent can't do what your users didn't ask for",
   subline: "Security isn't a feature we added. It's how our whole system works.",
   featured: {
-    title: "AI never places trades.",
+    title: "AI never places trades",
     text: "It only drafts plans. After approval, fixed rules execute them, so nothing is left to model judgment.",
     // Small three-step diagram shown inside the featured card.
     flow: ["AI drafts plan", "User approves", "Fixed rules execute"],
@@ -160,7 +160,7 @@ export const statusLabels: Record<AgentStatus, string> = {
 
 export const agentsSection = {
   eyebrow: "Agents under control",
-  title: "Every agent runs inside its mandate.",
+  title: "Every agent runs inside its mandate",
   text: "Active, waiting, paused or blocked. Every agent's status is visible at all times.",
   cardLabel: "Agent",
 };
@@ -185,6 +185,6 @@ export const agents: Agent[] = [
 
 // ── Footer ──────────────────────────────────────────────────────
 export const footer = {
-  tagline: "Security layer for agentic trading.",
+  tagline: "Security layer for agentic trading",
   copyright: `© ${new Date().getFullYear()} ${SITE_NAME}`,
 };
