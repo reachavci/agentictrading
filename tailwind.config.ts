@@ -1,62 +1,62 @@
 import type { Config } from "tailwindcss";
 
-// Design tokens (dark theme). Use these names in components, e.g. `bg-surface`, `text-muted`.
+// Design tokens (light theme). Colour is reserved for meaning: status chips only.
+// Use these names in components, e.g. `bg-surface`, `text-ink-muted`.
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        bg: "#0A0F1A",
+        bg: "#FFFFFF",
         surface: {
-          DEFAULT: "#111827", // chat card
-          card: "#0E1522", // agent cards, floating chips
-          inset: "#0B1220", // inputs, plan card
+          DEFAULT: "#F4F4F5", // panels behind product shots, agent cards
+          raised: "#FFFFFF", // cards sitting on a panel
+          sunken: "#F8F8F9", // inputs, plan card
         },
         line: {
-          DEFAULT: "#1F2A3A",
-          strong: "#243044",
-          soft: "#1C2636",
-          divider: "#141C2B",
+          DEFAULT: "#E6E6E9",
+          strong: "#D4D4D8",
         },
         ink: {
-          DEFAULT: "#E8ECF2", // primary text
-          secondary: "#A9B4C4",
-          muted: "#7C8AA0",
+          DEFAULT: "#0A0A0B", // primary text, buttons
+          secondary: "#4A4A50",
+          muted: "#6B6B72",
         },
-        accent: {
-          DEFAULT: "#34D399",
-          ink: "#052E1F", // text on accent
-        },
-        bubble: "#1E293B",
         status: {
-          "active-bg": "#0F2E24",
-          "active-fg": "#34D399",
-          "awaiting-bg": "#3A2E12",
-          "awaiting-fg": "#F5B544",
-          "paused-bg": "#1C2636",
-          "paused-fg": "#A9B4C4",
-          "blocked-bg": "#3A1418",
-          "blocked-fg": "#FCA5A5",
+          "active-bg": "#E6F4EA",
+          "active-fg": "#0A6B33",
+          "awaiting-bg": "#FDF1D8",
+          "awaiting-fg": "#7A4D00",
+          "paused-bg": "#EEEEF0",
+          "paused-fg": "#4A4A50",
+          "blocked-bg": "#FCE8E7",
+          "blocked-fg": "#A8201A",
+          live: "#16A34A",
         },
       },
       borderRadius: {
         pill: "999px",
-        chat: "18px",
+        panel: "28px",
+        chat: "20px",
         card: "16px",
         input: "12px",
-        chip: "10px",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+      },
+      boxShadow: {
+        product: "0 1px 2px rgba(10,10,11,0.04), 0 12px 32px -8px rgba(10,10,11,0.12), 0 40px 80px -24px rgba(10,10,11,0.10)",
       },
       keyframes: {
         blink: { "0%, 49%": { opacity: "1" }, "50%, 100%": { opacity: "0" } },
         marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
+        pulse: { "0%": { boxShadow: "0 0 0 0 rgba(22,163,74,0.45)" }, "70%, 100%": { boxShadow: "0 0 0 6px rgba(22,163,74,0)" } },
       },
       animation: {
         blink: "blink 1s step-end infinite",
         marquee: "marquee 48s linear infinite",
-      },
-      fontFamily: {
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        pulse: "pulse 2s ease-out infinite",
       },
     },
   },

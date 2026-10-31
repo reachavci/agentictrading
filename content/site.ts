@@ -38,6 +38,8 @@ export const hero = {
     "Every agent identified. Every action approved. Every order traceable.",
   chatLabel: "Agent",
   ctaLabel: "Request a demo",
+  secondaryCtaLabel: "How it works",
+  secondaryCtaHref: "#agents",
   statusAwaiting: "Awaiting approval",
   statusApproved: "Approved ✓",
   planTitle: "Proposed plan",
@@ -106,26 +108,6 @@ export const chatExamples: ChatExample[] = [
   },
 ];
 
-// Decorative chips floating at the sides of the hero (hidden on phones).
-export const floatingPrompts = {
-  left: [
-    "Buy $200 of SOL",
-    "Stop-loss on NVDA at -8%",
-    "Every Monday: $100 BTC",
-    "Sell 25% of AAPL at $240",
-    "Hedge if USD/TRY > 45",
-    "Move idle cash to USDT",
-  ],
-  right: [
-    "Rebalance to 60/40",
-    "Take profit on ETH at +30%",
-    "Buy the dip on MSFT, max $1k",
-    "Pause all agents",
-    "Split $3k: BTC 50 / ETH 50",
-    "Trim Tesla by 10% weekly",
-  ],
-};
-
 // ── Agents row ──────────────────────────────────────────────────
 export type AgentStatus = "active" | "awaiting" | "paused" | "blocked";
 
@@ -160,3 +142,9 @@ export const agents: Agent[] = [
   { name: "Apple take-profit", status: "active", description: "Sell Apple at a 25% gain.", meta: "Notify on trigger" },
   { name: "Idle cash sweep", status: "awaiting", description: "Move cash above $20,000 into USDT.", meta: "Plan ready for review" },
 ];
+
+// ── Footer ──────────────────────────────────────────────────────
+export const footer = {
+  tagline: "The security layer for agentic trading.",
+  copyright: `© ${new Date().getFullYear()} ${SITE_NAME}`,
+};

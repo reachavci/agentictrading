@@ -112,17 +112,20 @@ export default function ChatDemo() {
   const total = chatExamples.length;
 
   return (
-    <div className="w-full rounded-chat border border-line bg-surface p-4 text-left shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] sm:p-5">
+    <div className="w-full rounded-chat border border-line bg-surface-raised p-4 text-left shadow-product sm:p-5">
       {/* Top row */}
-      <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
-        <span>{hero.chatLabel}</span>
-        <span aria-label={`Example ${s.index + 1} of ${total}`}>
+      <div className="flex items-center justify-between">
+        <span className="flex items-center gap-2 text-[13px] font-medium text-ink">
+          <span aria-hidden="true" className="h-2 w-2 rounded-full bg-status-live motion-safe:animate-pulse" />
+          {hero.chatLabel}
+        </span>
+        <span className="font-mono text-xs tabular-nums text-ink-muted" aria-label={`Example ${s.index + 1} of ${total}`}>
           {pad(s.index + 1)} / {pad(total)}
         </span>
       </div>
 
       {/* Messages, anchored to the bottom */}
-      <div className="mt-4 flex min-h-[290px] flex-col justify-end sm:min-h-[250px]">
+      <div className="mt-4 flex min-h-[300px] flex-col justify-end sm:min-h-[284px]">
         <AnimatePresence mode="wait" initial={false}>
           {s.sent && (
             <motion.div
@@ -135,7 +138,7 @@ export default function ChatDemo() {
                 initial={reduceMotion ? false : { opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, ease }}
-                className="ml-auto max-w-[85%] rounded-[14px_14px_4px_14px] bg-bubble px-3.5 py-2.5 text-sm text-ink"
+                className="ml-auto max-w-[85%] rounded-[16px_16px_4px_16px] bg-ink px-3.5 py-2.5 text-sm text-white"
               >
                 {example.prompt}
               </motion.div>
@@ -188,16 +191,16 @@ export default function ChatDemo() {
 
       {/* Input row (decorative) */}
       <div className="mt-4 flex items-center gap-2">
-        <div className="flex h-11 min-w-0 flex-1 items-center rounded-input border border-line bg-surface-inset px-3.5 font-mono text-[13px] text-ink">
+        <div className="flex h-11 min-w-0 flex-1 items-center rounded-input border border-line bg-surface-sunken px-3.5 text-sm text-ink">
           <div ref={inputRef} className="flex min-w-0 items-center overflow-hidden">
             <span className="shrink-0 whitespace-pre">{s.typed}</span>
-            <span aria-hidden="true" className="ml-px inline-block h-4 w-[2px] shrink-0 bg-accent motion-safe:animate-blink" />
+            <span aria-hidden="true" className="ml-px inline-block h-[18px] w-[1.5px] shrink-0 bg-ink motion-safe:animate-blink" />
           </div>
         </div>
         <button
           type="button"
           aria-label="Send"
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-pill bg-accent text-accent-ink transition-opacity hover:opacity-90"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-pill bg-ink text-white transition-colors hover:bg-ink-secondary"
         >
           <ArrowUpIcon className="h-5 w-5" />
         </button>

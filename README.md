@@ -9,9 +9,8 @@ static site, so it's fast and cheap to host on Vercel.
 **All text lives in one file: [`content/site.ts`](content/site.ts).** You don't need to touch anything else.
 
 - **Company name:** change `SITE_NAME = "[Name]"` at the top. It updates the header, page title and share preview.
-- **Headlines and buttons:** edit the `hero`, `header` and `agentsSection` blocks.
+- **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and 3 `plan` rows. You can add or remove examples, and the counter adjusts.
-- **Floating background prompts:** edit `floatingPrompts.left` and `.right` (6 each). Keep them short, under about 28 characters.
 - **Agent cards:** edit `agents`. `status` must be one of `"active"`, `"awaiting"`, `"paused"` or `"blocked"`.
 
 Keep the quotes and commas as they are. If the site fails to build after an edit, a missing quote or comma is the usual cause.
@@ -53,23 +52,23 @@ components/
   ChatDemo.tsx      The animated chat (typing → plan → approval loop)
   PlanCard.tsx      "Proposed plan" box
   StatusChip.tsx    Active / Awaiting approval / Paused / Blocked / Approved
-  FloatingPrompts.tsx  Decorative chips beside the hero (wide screens only)
   AgentsRow.tsx     "Agents under control" section + scrolling strip
   AgentCard.tsx     One agent card
+  Footer.tsx        Name, tagline, demo link, copyright
   icons.tsx         Shield and arrow icons
   useReducedMotionSafe.ts  Reads the visitor's "reduce motion" setting
 content/
   site.ts           ← ALL text, prompts, plans and agents
 public/
   og-image.png      Share preview image (placeholder)
-tailwind.config.ts  Design tokens: colors, radii, fonts, animations
+tailwind.config.ts  Design tokens: colors, radii, shadows, fonts, animations
 next.config.ts      Static export settings
 ```
 
 ## Behaviour notes
 
-- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, static background chips and a grid of agent cards instead of the moving strip.
-- **Floating chips** only appear on screens 1200px and wider, where they fit beside the centre column without overlapping it. To change this, see the comment at the top of `components/FloatingPrompts.tsx`.
+- **Design:** light theme, Geist and Geist Mono fonts, near-black text and buttons. Colour is used only for status chips (green = active/approved, amber = awaiting, grey = paused, red = blocked). All colours are in `tailwind.config.ts`.
+- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved and a grid of agent cards instead of the moving strip.
 - **Demo form:** "Request a demo" currently just scrolls to the button in the hero. A `TODO` in `components/Hero.tsx` marks where a real form will go.
 - No analytics or tracking is included.
 
