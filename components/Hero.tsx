@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { hero } from "@/content/site";
 import ChatDemo from "./ChatDemo";
 import { ArrowRightIcon } from "./icons";
@@ -12,7 +13,15 @@ export default function Hero() {
           <h1 className="mt-5 text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[60px] lg:text-[72px] xl:text-[80px]">
             {hero.title}
           </h1>
-          <p className="mt-6 max-w-[34ch] text-lg leading-relaxed text-ink-secondary sm:text-xl">{hero.subline}</p>
+          <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary [text-wrap:balance] sm:text-xl">
+            {/* Lines only break between sentences */}
+            {hero.subline.split(/(?<=\.)\s+/).map((sentence, i) => (
+              <Fragment key={i}>
+                {i > 0 && " "}
+                <span className="whitespace-nowrap">{sentence}</span>
+              </Fragment>
+            ))}
+          </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
             {/* TODO: replace this anchor with a real demo request form (e.g. email + company) */}

@@ -1,6 +1,6 @@
 # [Name]: landing page
 
-Landing page for "[Name], the security layer for agentic trading".
+Landing page for "[Name]: security layer for agentic trading".
 Built with Next.js (App Router), TypeScript, Tailwind CSS and Framer Motion. It's exported as a
 static site, so it's fast and cheap to host on Vercel.
 
