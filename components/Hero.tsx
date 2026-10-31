@@ -1,9 +1,11 @@
 import { hero } from "@/content/site";
 import ChatDemo from "./ChatDemo";
+import FloatingPrompts from "./FloatingPrompts";
 
 export default function Hero() {
   return (
     <section className="relative px-5 pb-24 pt-12 sm:px-8 sm:pt-20">
+      <FloatingPrompts />
       <div className="relative z-10 mx-auto flex max-w-[680px] flex-col items-center text-center">
         <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">{hero.eyebrow}</p>
         <h1 className="mt-5 text-[40px] font-bold leading-[1.04] tracking-[-0.035em] text-ink sm:text-[54px] lg:text-[64px]">
