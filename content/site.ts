@@ -18,9 +18,9 @@ export const SITE_URL =
 
 // ── SEO ─────────────────────────────────────────────────────────
 export const seo = {
-  title: `${SITE_NAME} · Security layer for agentic trading`,
+  title: `${SITE_NAME} · Let your users trade by typing or speaking`,
   description:
-    "Agents identified. Actions approved. Orders traceable.",
+    "Agentic trading for brokers and exchanges, with security built in: every agent identified, every action approved, every order traceable.",
   ogImage: "/og-image.png", // placeholder; replace public/og-image.png later
 };
 
@@ -32,10 +32,10 @@ export const header = {
 
 // ── Hero ────────────────────────────────────────────────────────
 export const hero = {
-  eyebrow: "Agentic trading infrastructure",
-  title: "Security layer for agentic trading",
+  eyebrow: "Security layer for agentic trading",
+  title: "Let your users trade by typing or speaking.",
   subline:
-    "Agents identified. Actions approved. Orders traceable.",
+    "With security built in: every agent identified, every action approved, every order traceable.",
   chatLabel: "Agent",
   ctaLabel: "Request a demo",
   secondaryCtaLabel: "How it works",

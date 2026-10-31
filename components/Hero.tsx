@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { hero } from "@/content/site";
 import ChatDemo from "./ChatDemo";
 import { ArrowRightIcon } from "./icons";
@@ -6,21 +5,15 @@ import { ArrowRightIcon } from "./icons";
 export default function Hero() {
   return (
     <section className="pb-20 pt-12 sm:pb-28 sm:pt-16 lg:pt-24">
-      <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,540px)] lg:gap-16">
+      <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,540px)] xl:gap-16">
         {/* Text */}
         <div className="min-w-0">
-          <p className="text-sm font-medium text-ink-muted">{hero.eyebrow}</p>
-          <h1 className="mt-5 text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[60px] lg:text-[72px] xl:text-[80px]">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent [text-wrap:balance]">{hero.eyebrow}</p>
+          <h1 className="mt-5 text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[60px] lg:text-[60px] xl:text-[80px]">
             {hero.title}
           </h1>
           <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary [text-wrap:balance] sm:text-xl">
-            {/* Lines only break between sentences */}
-            {hero.subline.split(/(?<=\.)\s+/).map((sentence, i) => (
-              <Fragment key={i}>
-                {i > 0 && " "}
-                <span className="whitespace-nowrap">{sentence}</span>
-              </Fragment>
-            ))}
+            {hero.subline}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
@@ -43,7 +36,7 @@ export default function Hero() {
         </div>
 
         {/* Product shot */}
-        <div className="min-w-0 rounded-panel bg-surface p-3 sm:p-8 lg:p-10">
+        <div className="min-w-0 rounded-panel bg-surface p-3 sm:p-8 lg:p-6 xl:p-10">
           <ChatDemo />
         </div>
       </div>
