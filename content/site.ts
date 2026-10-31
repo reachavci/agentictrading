@@ -118,8 +118,8 @@ export const howItWorks = {
   // Shown in order; step numbers (01–04) are added automatically.
   steps: [
     { title: "Say it", text: "Users type or speak in plain language: 'Buy $500 of Nvidia every Friday.'" },
-    { title: "Review the plan", text: "The agent turns it into a clear plan: asset, amount, trigger and limits. If anything is missing, it asks." },
-    { title: "Approve", text: "Nothing runs until the user approves. Every order, every time." },
+    { title: "Review plan", text: "An agent turns it into a clear plan: asset, amount, trigger and limits. If anything is missing, it asks." },
+    { title: "Approve", text: "Nothing runs until users approve. Every order, every time." },
     { title: "Track", text: "Every action appears in a live feed, including checks that didn't trigger, and why." },
   ],
 };
@@ -131,17 +131,17 @@ export type SecurityIcon = "identity" | "approval" | "limits" | "alert" | "recor
 export const security = {
   eyebrow: "Security",
   title: "Built so an agent can't do what your users didn't ask for.",
-  subline: "Security isn't a feature we added. It's how the whole system works.",
+  subline: "Security isn't a feature we added. It's how our whole system works.",
   featured: {
-    title: "The AI never places trades.",
-    text: "It only drafts the plan. After approval, fixed rules execute it, so nothing is left to the model's judgment.",
+    title: "AI never places trades.",
+    text: "It only drafts plans. After approval, fixed rules execute them, so nothing is left to model judgment.",
     // Small three-step diagram shown inside the featured card.
-    flow: ["AI drafts the plan", "User approves", "Fixed rules execute"],
+    flow: ["AI drafts plan", "User approves", "Fixed rules execute"],
   },
   items: [
     { icon: "identity", title: "Every agent has an identity", text: "You always know which agent acted, and for whom." },
     { icon: "approval", title: "Nothing runs without approval", text: "Users confirm every plan before it executes." },
-    { icon: "limits", title: "Limits users set", text: "Budgets, assets and frequency caps the agent can't exceed." },
+    { icon: "limits", title: "Limits users set", text: "Budgets, assets and frequency caps agents can't exceed." },
     { icon: "alert", title: "Mistakes and manipulation caught", text: "Unusual amounts and suspicious instructions are flagged or blocked." },
     { icon: "record", title: "Everything recorded", text: "A tamper-proof trail of every command, approval and order." },
     { icon: "stop", title: "One tap stops everything", text: "Pause any agent, or all of them, instantly." },
@@ -178,7 +178,7 @@ export const agents: Agent[] = [
   { name: "BTC dip buy", status: "awaiting", description: "Buy $200 of BTC if it drops below $90,000.", meta: "Plan ready for review" },
   { name: "Tesla stop-loss", status: "active", description: "Sell Tesla if it falls 10% below cost.", meta: "Notify on trigger" },
   { name: "Withdrawal request", status: "blocked", description: "Send all funds to a new wallet address.", meta: "Outside mandate · logged" },
-  { name: "Monthly rebalance", status: "paused", description: "Rebalance to 60/40 on the 1st of every month.", meta: "Paused by user" },
+  { name: "Monthly rebalance", status: "paused", description: "Rebalance to 60/40 every month.", meta: "Paused by user" },
   { name: "Apple take-profit", status: "active", description: "Sell Apple at a 25% gain.", meta: "Notify on trigger" },
   { name: "Idle cash sweep", status: "awaiting", description: "Move cash above $20,000 into USDT.", meta: "Plan ready for review" },
 ];
