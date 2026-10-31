@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import AgentsRow from "@/components/AgentsRow";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <AgentsRow />
       </main>
     </div>
   );

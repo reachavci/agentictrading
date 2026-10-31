@@ -48,9 +48,11 @@ const config: Config = {
       },
       keyframes: {
         blink: { "0%, 49%": { opacity: "1" }, "50%, 100%": { opacity: "0" } },
+        marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
       },
       animation: {
         blink: "blink 1s step-end infinite",
+        marquee: "marquee 48s linear infinite",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],

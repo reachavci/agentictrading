@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useReducedMotionSafe } from "./useReducedMotionSafe";
 import { chatExamples, hero } from "@/content/site";
 import { ArrowUpIcon } from "./icons";
 import PlanCard from "./PlanCard";
@@ -33,7 +34,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function ChatDemo() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useReducedMotionSafe();
   const [s, setS] = useState<State>(EMPTY);
   const inputRef = useRef<HTMLDivElement>(null);
 
@@ -44,6 +45,7 @@ export default function ChatDemo() {
   }, [s.typed]);
 
   useEffect(() => {
+    if (reduceMotion === null) return; // not mounted yet
     if (reduceMotion) {
       setS(STATIC_DONE);
       return;

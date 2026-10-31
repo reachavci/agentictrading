@@ -8,10 +8,10 @@ export default function Hero() {
       <FloatingPrompts />
       <div className="relative z-10 mx-auto flex max-w-[680px] flex-col items-center text-center">
         <p className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">{hero.eyebrow}</p>
-        <h1 className="mt-5 text-[40px] font-bold leading-[1.04] tracking-[-0.035em] text-ink sm:text-[54px] lg:text-[64px]">
+        <h1 className="mt-5 text-[40px] font-bold leading-[1.04] tracking-[-0.035em] text-ink [text-wrap:balance] sm:text-[54px] lg:text-[64px]">
           {hero.title}
         </h1>
-        <p className="mt-5 max-w-[640px] text-[17px] leading-relaxed text-ink-secondary sm:text-[19px]">{hero.subline}</p>
+        <p className="mt-5 max-w-[640px] text-[17px] leading-relaxed text-ink-secondary [text-wrap:balance] sm:text-[19px]">{hero.subline}</p>
 
         <div className="mt-12 w-full max-w-[560px]">
           <ChatDemo />

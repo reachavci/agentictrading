@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useReducedMotion } from "framer-motion";
 import { floatingPrompts } from "@/content/site";
+import { useReducedMotionSafe } from "./useReducedMotionSafe";
 
 // Timing: every chip runs on a 9-tick cycle and is visible for 5 ticks.
 const TICK_MS = 1100;
@@ -37,11 +37,11 @@ function chipStyle(side: "left" | "right", i: number): React.CSSProperties {
 }
 
 export default function FloatingPrompts() {
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = useReducedMotionSafe();
   const [tick, setTick] = useState(-1); // -1 = everything hidden until mounted
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion !== false) return; // not mounted yet, or reduced motion
     setTick(0);
     const id = setInterval(() => setTick((t) => t + 1), TICK_MS);
     return () => clearInterval(id);
