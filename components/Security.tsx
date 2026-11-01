@@ -19,9 +19,9 @@ export default function Security() {
   const { featured } = security;
   return (
     <section id="security" aria-labelledby="security-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
-      <SectionHeader id="security-title" eyebrow={security.eyebrow} title={security.title} text={security.subline} />
+      <SectionHeader id="security-title" eyebrow={security.eyebrow} title={security.title} />
 
-      <div className="mx-auto mt-12 max-w-[1200px] px-5 sm:px-8">
+      <div className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8">
         {/* Featured card */}
         <Reveal delay={0.08}>
           <div className="rounded-card border border-accent/25 bg-bg p-7 shadow-[0_0_0_5px_rgba(10,107,51,0.05),0_24px_48px_-28px_rgba(10,107,51,0.35)] sm:p-10 xl:grid xl:grid-cols-[minmax(0,1fr)_auto] xl:items-center xl:gap-12">

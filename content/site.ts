@@ -23,9 +23,9 @@ export const SITE_URL =
 
 // ── SEO ─────────────────────────────────────────────────────────
 export const seo = {
-  title: `${SITE_NAME} · Let your users trade by typing or speaking`,
+  title: `${SITE_NAME} · Let your users trade by chat and voice`,
   description:
-    "Agentic trading for brokers and exchanges. No trade runs without your users' approval. No agent goes beyond their limits.",
+    "Agentic trading for brokers, exchanges and fintechs. No trade runs without your users' approval. No agent goes beyond their limits.",
   ogImage: "/og-image.png", // placeholder; replace public/og-image.png later
 };
 
@@ -45,7 +45,7 @@ export const header = {
 // ── Hero ────────────────────────────────────────────────────────
 export const hero = {
   eyebrow: "Security layer for agentic trading",
-  title: "Let your users trade by typing or speaking",
+  title: "Let your users trade by chat and voice",
   // Each entry is one line on desktop; on phones they flow together and wrap naturally.
   subline: [
     "No trade runs without their approval.",
@@ -142,12 +142,11 @@ export const howItWorks = {
 export type SecurityIcon = "identity" | "approval" | "limits" | "alert" | "record" | "stop";
 
 export const security = {
-  eyebrow: "Security",
+  eyebrow: "Security layer",
   title: "Built so an agent can't do what your users didn't ask for",
-  subline: "Security isn't a feature we added. It's how our whole system works.",
   featured: {
     title: "AI plans. Users approve. Rules execute.",
-    text: "The AI turns a request into a plan. Only after the user approves do fixed rules carry it out, so the model never acts on its own judgment.",
+    text: "AI turns a request into a plan. Only after the user approves do fixed rules carry it out, so the model never acts on its own judgment.",
     // Small three-step diagram shown inside the featured card.
     flow: ["AI plans", "User approves", "Rules execute"],
   },
