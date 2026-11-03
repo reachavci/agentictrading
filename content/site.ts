@@ -5,7 +5,7 @@
 
 // ── Company name ────────────────────────────────────────────────
 // Change this one line to rename the company everywhere on the site.
-export const SITE_NAME = "loggedin";
+export const SITE_NAME = "[LOGGEDIN]";
 
 // ── Demo requests ───────────────────────────────────────────────
 // Where demo requests go. The form opens the visitor's email app addressed here.

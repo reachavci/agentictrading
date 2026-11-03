@@ -53,13 +53,13 @@ export default function Header() {
         solid ? "border-line bg-bg/85 backdrop-blur-md" : "border-transparent bg-bg"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-4 px-5 sm:px-8">
-        <a href="#top" className="flex shrink-0 items-center gap-2 rounded-md text-[17px] font-semibold tracking-[-0.02em] text-ink">
-          <ShieldCheckIcon className="h-[22px] w-[22px]" />
+      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-3 px-5 max-[359px]:px-4 sm:px-8">
+        <a href="#top" className="flex shrink-0 items-center gap-2 rounded-md text-[17px] font-semibold tracking-[-0.02em] text-ink max-[359px]:gap-1.5 max-[359px]:text-[15px]">
+          <ShieldCheckIcon className="h-[22px] w-[22px] max-[359px]:h-5 max-[359px]:w-5" />
           <span>{SITE_NAME}</span>
         </a>
 
-        <div className="flex items-center gap-2 md:gap-8">
+        <div className="flex items-center gap-2 max-[359px]:gap-1 md:gap-8">
           {/* Desktop links */}
           <nav aria-label="Main" className="hidden md:block">
             <ul className="flex items-center gap-7">
@@ -82,14 +82,14 @@ export default function Header() {
             </ul>
           </nav>
 
-          <a href={header.ctaHref} className={`${primaryButton} h-10 px-4 text-sm`}>
+          <a href={header.ctaHref} className={`${primaryButton} h-10 whitespace-nowrap px-4 text-sm max-[359px]:px-3 max-[359px]:text-[13px]`}>
             {header.ctaLabel}
           </a>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-pill text-ink hover:bg-surface md:hidden"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-pill text-ink hover:bg-surface max-[359px]:w-9 md:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={header.menuLabel}
