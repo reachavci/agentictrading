@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: seo.title,
   description: seo.description,
+  // Private notebook: hidden from search engines on purpose (see README).
+  robots: { index: false, follow: false },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,

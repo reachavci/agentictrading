@@ -1,10 +1,19 @@
 import type { NextConfig } from "next";
 
-// Static export: `next build` writes plain HTML/CSS/JS to /out.
-// Vercel serves it as a static site (no server needed).
+// The page is still prerendered as static HTML at build time; Vercel serves it from its CDN.
+// (Not using `output: "export"`, because static exports can't send custom headers.)
 const nextConfig: NextConfig = {
-  output: "export",
   images: { unoptimized: true },
+
+  // Private notebook: tell search engines not to index or follow anything on this site.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -1,8 +1,15 @@
 # [LOGGEDIN]: landing page
 
 Landing page for "[LOGGEDIN]: security layer for agentic trading".
-Built with Next.js (App Router), TypeScript, Tailwind CSS and Framer Motion. It's exported as a
-static site, so it's fast and cheap to host on Vercel.
+Built with Next.js (App Router), TypeScript, Tailwind CSS and Framer Motion. The page is
+prerendered as static HTML at build time, so it's fast and cheap to host on Vercel.
+
+> **Private notebook: hidden from search engines on purpose.** Every page sends
+> `<meta name="robots" content="noindex, nofollow">` (in `app/layout.tsx`) and the header
+> `X-Robots-Tag: noindex, nofollow` (in `next.config.ts`). `public/robots.txt` still allows
+> crawling, so search engines can read those noindex signals, and there is no sitemap.
+> There's no password: anyone with the link can open the site. To make it public later,
+> remove the `robots` line in `app/layout.tsx` and the `headers()` block in `next.config.ts`.
 
 ## Change the company name or any text
 
@@ -44,7 +51,7 @@ To test the production build:
 npm run build
 ```
 
-This writes the finished static site to the `out/` folder.
+Then run `npx next start` to serve that build at http://localhost:3000.
 
 ## Folder structure
 
@@ -82,8 +89,9 @@ content/
   site.ts           ← ALL text, prompts, plans and agents
 public/
   og-image.png      Share preview image (placeholder)
+  robots.txt        Allows crawling (so the noindex signals can be seen)
 tailwind.config.ts  Design tokens: colors, radii, shadows, fonts, animations
-next.config.ts      Static export settings
+next.config.ts      Build settings + the X-Robots-Tag noindex header
 ```
 
 ## Behaviour notes
