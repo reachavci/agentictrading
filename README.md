@@ -23,7 +23,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
 - **Solutions:** edit `solutions.items`. Each card's `chat` sets the mini chat preview: the `request` that types out, and the `chip` shown after it (`chipTone`: `"awaiting"`, `"neutral"` or `"approved"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
-- **Security:** edit `security`. The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
+- **Security:** edit `security`. The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the eight `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and 3 `plan` rows. You can add or remove examples, and the counter adjusts.
 - **Agent cards:** edit `agents`. `status` must be one of `"active"`, `"awaiting"`, `"paused"` or `"blocked"`.
 
@@ -64,7 +64,7 @@ components/
   Header.tsx        Sticky header: logo, menu links (active one highlighted), mobile menu, "Request a demo"
   Hero.tsx          Headline, subline, chat card, demo button
   HowItWorks.tsx    Four numbered steps
-  Security.tsx      Featured flow card + six security cards
+  Security.tsx      Featured flow card + eight security cards
   SecurityFlow.tsx  Animated AI plans → User approves → Rules execute
   SecurityVisuals.tsx  Small looping animation on each security card
   SolutionChat.tsx  Mini chat preview on each solutions card

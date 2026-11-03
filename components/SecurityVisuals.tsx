@@ -10,13 +10,74 @@ const v = security.visuals;
 type Props = { delay: number };
 const fade = (show: boolean) => `transition-opacity duration-500 ${show ? "opacity-100" : "opacity-0"}`;
 
+/** Read-only balance; an attempted edit appears, gets struck through and rejected. */
+function Data({ delay }: Props) {
+  const { ref, step } = useSequence([900, 900, 2200, 400], { delay, finalStep: 2 });
+  const attempt = step >= 1 && step <= 2;
+  const rejected = step === 2;
+  return (
+    <div ref={ref} className="flex w-full flex-col gap-2">
+      <div className="flex items-center justify-between gap-3">
+        <span className="whitespace-nowrap font-mono text-xs font-medium text-ink">{v.balance}</span>
+        <span
+          className={`flex items-center gap-1 whitespace-nowrap text-[11px] font-medium transition-colors duration-300 ${
+            rejected ? "text-ink" : "text-ink-muted"
+          }`}
+        >
+          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <rect x="5" y="11" width="14" height="10" rx="2" />
+            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+          </svg>
+          {v.readOnly}
+        </span>
+      </div>
+      <div className={`flex items-center gap-2 transition-opacity duration-500 ${attempt ? "opacity-100" : "opacity-0"}`}>
+        <span
+          className={`whitespace-nowrap font-mono text-[11px] line-through transition-[text-decoration-color,color] duration-500 ${
+            rejected ? "text-ink-muted decoration-status-blocked-fg" : "text-ink decoration-transparent"
+          }`}
+        >
+          {v.editAttempt}
+        </span>
+        <span className={fade(rejected)}>
+          <StatusChip variant="blocked" label={v.rejected} />
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/** A small order passes within limits; a larger one stops for approval. */
+function Autonomy({ delay }: Props) {
+  const { ref, step } = useSequence([500, 500, 900, 600, 2200, 400], { delay, finalStep: 4 });
+  const on = (from: number) => step >= from && step <= 4;
+  const row = (show: boolean) =>
+    `flex items-center justify-between gap-2 transition-[opacity,transform] duration-300 ${show ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"}`;
+  return (
+    <div ref={ref} className="flex w-full flex-col gap-2">
+      <div className={row(on(1))}>
+        <span className="whitespace-nowrap font-mono text-[11px] text-ink">{v.smallOrder}</span>
+        <span className={fade(on(2))}>
+          <StatusChip variant="approved" label={v.withinLimits} />
+        </span>
+      </div>
+      <div className={row(on(3))}>
+        <span className="whitespace-nowrap font-mono text-[11px] text-ink">{v.largeOrder}</span>
+        <span className={fade(on(4))}>
+          <StatusChip variant="awaiting" label={v.needsApproval} />
+        </span>
+      </div>
+    </div>
+  );
+}
+
 /** ID line typing out. */
 function Identity({ delay }: Props) {
   const { ref, step, running, reduce } = useSequence([500, v.identity.length * TYPE_MS + 2400, 400], { delay, finalStep: 1 });
   const typed = useTyped(v.identity, step >= 1, running, reduce);
   return (
     <div ref={ref} className={fade(step !== 2)}>
-      <span className="inline-flex h-7 items-center rounded-pill bg-surface px-3 font-mono text-xs text-ink">
+      <span className="inline-flex h-7 items-center whitespace-nowrap rounded-pill bg-surface px-3 font-mono text-[11px] text-ink">
         {typed}
         {step === 1 && <Caret />}
       </span>
@@ -135,6 +196,8 @@ function Stop({ delay }: Props) {
 }
 
 const VISUALS: Record<SecurityVisual, (p: Props) => React.JSX.Element> = {
+  data: Data,
+  autonomy: Autonomy,
   identity: Identity,
   approval: Approval,
   limits: Limits,
@@ -147,7 +210,7 @@ const VISUALS: Record<SecurityVisual, (p: Props) => React.JSX.Element> = {
 export default function SecurityVisualStage({ visual, delay }: { visual: SecurityVisual; delay: number }) {
   const V = VISUALS[visual];
   return (
-    <div aria-hidden="true" className="flex h-[88px] items-center rounded-input border border-line bg-bg px-4">
+    <div aria-hidden="true" className="flex h-[88px] items-center overflow-hidden rounded-input border border-line bg-bg px-4 xl:px-3">
       <V delay={delay} />
     </div>
   );

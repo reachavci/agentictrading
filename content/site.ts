@@ -139,8 +139,8 @@ export const howItWorks = {
 };
 
 // ── Security ────────────────────────────────────────────────────
-// visual must be one of: "identity", "approval", "limits", "alert", "record", "stop"
-export type SecurityVisual = "identity" | "approval" | "limits" | "alert" | "record" | "stop";
+// visual must be one of: "data", "autonomy", "identity", "approval", "limits", "alert", "record", "stop"
+export type SecurityVisual = "data" | "autonomy" | "identity" | "approval" | "limits" | "alert" | "record" | "stop";
 
 export const security = {
   eyebrow: "Security layer",
@@ -148,15 +148,25 @@ export const security = {
   featured: {
     // The three-step flow is the main element of the wide card; the note sits under it.
     flow: ["AI plans", "User approves", "Rules execute"],
-    note: "The model never acts on its own judgment.",
+    note: "Safety rules run outside the AI, so no instruction can switch them off.",
     // Animation text shown under each step
     example: "Buy NVDA · $500 · every Friday", // typed out under "AI plans"
     awaiting: "Awaiting approval", // chip under "User approves", before…
     approved: "Approved ✓", // …and after approval
     result: "Order sent", // under "Rules execute"
   },
-  // Text used in the small looping animations on the six cards
+  // Text used in the small looping animations on the cards
   visuals: {
+    // "AI can't change the data": a read-only balance; an attempted edit is rejected
+    balance: "Balance $12,400",
+    readOnly: "Read-only",
+    editAttempt: "Edit to $50,000",
+    rejected: "Rejected",
+    // "More autonomy, more checks": a small order runs, a larger one needs approval
+    smallOrder: "$50 order",
+    withinLimits: "✓ Within limits",
+    largeOrder: "$5,000 order",
+    needsApproval: "Needs approval",
     identity: "agent_7f3a · for user_2194",
     approveButton: "Approve",
     limitCap: "$2,000 / month",
@@ -167,6 +177,8 @@ export const security = {
     toggleOff: "Paused",
   },
   items: [
+    { visual: "data", title: "AI can't change the data", text: "Balances, positions and limits live in our system. The AI can read them, never change them." },
+    { visual: "autonomy", title: "More autonomy, more checks", text: "Routine actions within limits run on their own. Anything larger or unusual goes back to the user." },
     { visual: "identity", title: "Every agent has an identity", text: "Know which agent acted, and for whom." },
     { visual: "approval", title: "Nothing runs without approval", text: "Users confirm every plan first." },
     { visual: "limits", title: "Limits users set", text: "Budgets, assets and frequency caps agents can't exceed." },

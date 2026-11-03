@@ -9,7 +9,7 @@ export default function Solutions() {
       <SectionHeader id="solutions-title" eyebrow={solutions.eyebrow} title={solutions.title} />
 
       <Reveal className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
-        <ul className="grid gap-4 md:grid-cols-3">
+        <ul className="grid gap-4 lg:grid-cols-3">
           {solutions.items.map((item, i) => (
             <li key={item.title} className="rounded-card bg-surface p-6">
               <SolutionChat {...item.chat} delay={i * 500} />
