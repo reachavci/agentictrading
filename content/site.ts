@@ -257,13 +257,34 @@ export const faq = {
   title: "Questions",
   // The first question is open when the page loads; only one can be open at a time.
   items: [
-    { q: `What is ${SITE_NAME}?`, a: "A security layer that lets brokers, exchanges and fintechs offer AI trading by chat and voice." },
-    { q: "Who is it for?", a: "Licensed brokers, crypto exchanges, fintechs and banks." },
-    { q: "Does the AI place trades?", a: "No. It drafts the plan. After the user approves, fixed rules carry it out." },
-    { q: "What if the AI misunderstands?", a: "It asks when unsure. Users see the full plan before anything runs." },
-    { q: "Can an agent go beyond a user's limits?", a: "No. Every action is checked against the user's limits. Anything outside them is blocked." },
-    { q: "What if someone tries to manipulate the agent?", a: "Suspicious instructions are blocked, and every attempt is logged." },
-    { q: "Can users stop an agent?", a: "Yes. One tap pauses any agent, or all of them." },
+    {
+      q: "What is agentic trading?",
+      a: "Agentic trading is when autonomous AI agents turn a user's intent into positions, without manual order entry, within limits the user approves. Powered by LLM reasoning, agents read market and on-chain data, build a plan toward the user's goal, execute it once approved, and monitor it until the goal is reached.",
+    },
+    {
+      q: `What is ${SITE_NAME}?`,
+      a: `${SITE_NAME} is agentic trading infrastructure for brokers, exchanges and fintechs. It lets their users trade by chat and voice, with security built into every step.`,
+    },
+    {
+      q: "How is it different from a trading bot?",
+      a: "Bots act on signals by themselves. Our AI only drafts the plan. After the user approves, fixed rules carry it out.",
+    },
+    {
+      q: "What can users ask the agent to do?",
+      a: "Market and conditional orders, recurring buys, stop-losses, rebalancing and multi-step trades.",
+    },
+    {
+      q: "What if the AI misunderstands?",
+      a: "It asks when unsure. Users see the full plan before anything runs.",
+    },
+    {
+      q: "What stops an agent from going too far?",
+      a: "Every action is checked against the user's limits. Anything outside them, including suspicious instructions, is blocked and logged.",
+    },
+    {
+      q: "Can users stop an agent?",
+      a: "Yes. One tap pauses any agent, or all of them.",
+    },
   ],
 };
 
