@@ -148,7 +148,7 @@ export const security = {
   featured: {
     // The three-step flow is the main element of the wide card; the note sits under it.
     flow: ["AI plans", "User approves", "Rules execute"],
-    note: "Safety rules run outside the AI, so no instruction can switch them off.",
+    note: "Safety rules run separately from AI, so no instruction can switch them off.",
     // Animation text shown under each step
     example: "Buy NVDA · $500 · every Friday", // typed out under "AI plans"
     awaiting: "Awaiting approval", // chip under "User approves", before…
@@ -177,7 +177,7 @@ export const security = {
     toggleOff: "Paused",
   },
   items: [
-    { visual: "data", title: "AI can't change the data", text: "Balances, positions and limits live in our system. The AI can read them, never change them." },
+    { visual: "data", title: "AI can't change the data", text: "Balances, positions and limits live in our system. AI can read them, never change them." },
     { visual: "autonomy", title: "More autonomy, more checks", text: "Routine actions within limits run on their own. Anything larger or unusual goes back to the user." },
     { visual: "identity", title: "Every agent has an identity", text: "Know which agent acted, and for whom." },
     { visual: "approval", title: "Nothing runs without approval", text: "Users confirm every plan first." },
@@ -286,7 +286,7 @@ export const faq = {
       a: "Market and conditional orders, recurring buys, stop-losses, rebalancing and multi-step trades.",
     },
     {
-      q: "What if the AI misunderstands?",
+      q: "What if AI misunderstands?",
       a: "It asks when unsure. Users see the full plan before anything runs.",
     },
     {
