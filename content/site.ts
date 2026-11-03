@@ -127,13 +127,13 @@ export const chatExamples: ChatExample[] = [
 // ── How it works ────────────────────────────────────────────────
 export const howItWorks = {
   eyebrow: "How it works",
-  title: "From a sentence to a trade, with your users in control",
+  title: "From a sentence to a trade",
   // Shown in order; step numbers (01–04) are added automatically.
   steps: [
-    { title: "Say it", text: 'Users type or speak in plain language: "Buy $500 of Nvidia every Friday."' },
-    { title: "Review plan", text: "An agent turns it into a clear plan: asset, amount, trigger and limits. If anything is missing, it asks." },
-    { title: "Approve", text: "Nothing runs until users approve. Every order, every time." },
-    { title: "Track", text: "Every action appears in a live feed, including checks that didn't trigger, and why." },
+    { title: "Say it", text: 'Users type or speak: "Buy $500 of Nvidia every Friday."' },
+    { title: "Review the plan", text: "The agent shows asset, amount, trigger and limits. If anything is missing, it asks." },
+    { title: "Approve", text: "Your users approve. Every order, every time." },
+    { title: "Track", text: "Every action and check appears in a live feed." },
   ],
 };
 
@@ -143,19 +143,18 @@ export type SecurityIcon = "identity" | "approval" | "limits" | "alert" | "recor
 
 export const security = {
   eyebrow: "Security layer",
-  title: "Built so an agent can't do what your users didn't ask for",
+  title: "Agents only do what your users ask",
   featured: {
-    title: "AI plans. Users approve. Rules execute.",
-    text: "AI turns a request into a plan. Only after the user approves do fixed rules carry it out, so the model never acts on its own judgment.",
-    // Small three-step diagram shown inside the featured card.
+    // The three-step flow is the main element of the wide card; the note sits under it.
     flow: ["AI plans", "User approves", "Rules execute"],
+    note: "The model never acts on its own judgment.",
   },
   items: [
-    { icon: "identity", title: "Every agent has an identity", text: "You always know which agent acted, and for whom." },
-    { icon: "approval", title: "Nothing runs without approval", text: "Users confirm every plan before it executes." },
+    { icon: "identity", title: "Every agent has an identity", text: "Know which agent acted, and for whom." },
+    { icon: "approval", title: "Nothing runs without approval", text: "Users confirm every plan first." },
     { icon: "limits", title: "Limits users set", text: "Budgets, assets and frequency caps agents can't exceed." },
-    { icon: "alert", title: "Mistakes and manipulation caught", text: "Unusual amounts and suspicious instructions are flagged or blocked." },
-    { icon: "record", title: "Everything recorded", text: "A tamper-proof trail of every command, approval and order." },
+    { icon: "alert", title: "Mistakes and manipulation caught", text: "Unusual amounts and suspicious instructions are blocked." },
+    { icon: "record", title: "Everything recorded", text: "A tamper-proof trail of every action." },
     { icon: "stop", title: "One tap stops everything", text: "Pause any agent, or all of them, instantly." },
   ] satisfies { icon: SecurityIcon; title: string; text: string }[],
 };
@@ -166,7 +165,7 @@ export type SolutionIcon = "broker" | "exchange" | "bank";
 
 export const solutions = {
   eyebrow: "Solutions",
-  title: "Built for platforms that move money",
+  title: "Add agentic trading to your platform",
   items: [
     { icon: "broker", title: "Brokers", text: "Let your users trade stocks by typing or speaking, under your brand." },
     { icon: "exchange", title: "Crypto exchanges", text: "Add an AI trading assistant with limits, approvals and a full audit trail." },
@@ -185,9 +184,9 @@ export const statusLabels: Record<AgentStatus, string> = {
 };
 
 export const agentsSection = {
-  eyebrow: "Agents under control",
-  title: "Every agent runs inside its mandate",
-  text: "Active, waiting, paused or blocked. Every agent's status is visible at all times.",
+  eyebrow: "Live status",
+  title: "See every agent, live",
+  text: "Active, waiting, paused or blocked.",
   cardLabel: "Agent",
 };
 

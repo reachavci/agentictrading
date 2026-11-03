@@ -15,7 +15,7 @@ static site, so it's fast and cheap to host on Vercel.
 - **Menu links:** edit `header.nav`.
 - **Solutions:** edit `solutions.items` (icon must be `"broker"`, `"exchange"` or `"bank"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
-- **Security:** edit `security`. The `featured` block is the wide card at the top; each of the six `items` needs an `icon` from the list in the comment.
+- **Security:** edit `security`. The `featured` block is the wide card at the top (its `flow` steps and a `note` line); each of the six `items` needs an `icon` from the list in the comment.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and 3 `plan` rows. You can add or remove examples, and the counter adjusts.
 - **Agent cards:** edit `agents`. `status` must be one of `"active"`, `"awaiting"`, `"paused"` or `"blocked"`.
 
@@ -56,7 +56,7 @@ components/
   Header.tsx        Sticky header: logo, menu links (active one highlighted), mobile menu, "Request a demo"
   Hero.tsx          Headline, subline, chat card, demo button
   HowItWorks.tsx    Four numbered steps
-  Security.tsx      Featured card + six security cards
+  Security.tsx      Featured flow card + six security cards
   Solutions.tsx     Three audience cards
   Demo.tsx          "See it in action" section
   DemoForm.tsx      Demo form (opens the visitor's email app for now)
@@ -67,7 +67,7 @@ components/
   ChatDemo.tsx      The animated chat (typing → plan → approval loop)
   PlanCard.tsx      "Proposed plan" box
   StatusChip.tsx    Active / Awaiting approval / Paused / Blocked / Approved
-  AgentsRow.tsx     "Agents under control" section + scrolling strip
+  AgentsRow.tsx     "Live status" section + scrolling strip
   AgentCard.tsx     One agent card
   Footer.tsx        Name, tagline, demo link, copyright
   icons.tsx         Shield, arrow and security icons

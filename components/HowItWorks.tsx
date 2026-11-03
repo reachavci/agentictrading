@@ -9,7 +9,7 @@ export default function HowItWorks() {
     <section id="how-it-works" aria-labelledby="how-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
       <SectionHeader id="how-title" eyebrow={howItWorks.eyebrow} title={howItWorks.title} />
 
-      <Reveal className="mx-auto mt-12 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
+      <Reveal className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
         <ol className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {howItWorks.steps.map((step, i) => (
             <li
@@ -25,7 +25,7 @@ export default function HowItWorks() {
                 {pad(i + 1)}
               </span>
               <h3 className="mt-6 text-lg font-semibold tracking-[-0.02em] text-ink">{step.title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary">{step.text}</p>
+              <p className="mt-2 text-[15px] leading-relaxed text-ink-secondary [text-wrap:pretty]">{step.text}</p>
             </li>
           ))}
         </ol>

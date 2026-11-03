@@ -13,7 +13,7 @@ export default function Solutions() {
     <section id="solutions" aria-labelledby="solutions-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
       <SectionHeader id="solutions-title" eyebrow={solutions.eyebrow} title={solutions.title} />
 
-      <Reveal className="mx-auto mt-12 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
+      <Reveal className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
         <ul className="grid gap-4 md:grid-cols-3">
           {solutions.items.map((item) => (
             <li key={item.title} className="rounded-card bg-surface p-6">
