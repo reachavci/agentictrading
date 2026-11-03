@@ -1,6 +1,6 @@
-# [Name]: landing page
+# loggedin: landing page
 
-Landing page for "[Name]: security layer for agentic trading".
+Landing page for "loggedin: security layer for agentic trading".
 Built with Next.js (App Router), TypeScript, Tailwind CSS and Framer Motion. It's exported as a
 static site, so it's fast and cheap to host on Vercel.
 
@@ -8,7 +8,7 @@ static site, so it's fast and cheap to host on Vercel.
 
 **All text lives in one file: [`content/site.ts`](content/site.ts).** You don't need to touch anything else.
 
-- **Company name:** change `SITE_NAME = "[Name]"` at the top. It updates the header, page title and share preview.
+- **Company name:** change `SITE_NAME = "loggedin"` at the top. It updates the header, page title and share preview.
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
