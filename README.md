@@ -14,9 +14,9 @@ static site, so it's fast and cheap to host on Vercel.
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer).
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
-- **Solutions:** edit `solutions.items` (icon must be `"broker"`, `"exchange"` or `"bank"`).
+- **Solutions:** edit `solutions.items`. Each card's `chat` sets the mini chat preview: the `request` that types out, and the `chip` shown after it (`chipTone`: `"awaiting"`, `"neutral"` or `"approved"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
-- **Security:** edit `security`. The `featured` block is the wide card at the top (its `flow` steps and a `note` line); each of the six `items` needs an `icon` from the list in the comment.
+- **Security:** edit `security`. The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and 3 `plan` rows. You can add or remove examples, and the counter adjusts.
 - **Agent cards:** edit `agents`. `status` must be one of `"active"`, `"awaiting"`, `"paused"` or `"blocked"`.
 
@@ -58,6 +58,10 @@ components/
   Hero.tsx          Headline, subline, chat card, demo button
   HowItWorks.tsx    Four numbered steps
   Security.tsx      Featured flow card + six security cards
+  SecurityFlow.tsx  Animated AI plans → User approves → Rules execute
+  SecurityVisuals.tsx  Small looping animation on each security card
+  SolutionChat.tsx  Mini chat preview on each solutions card
+  motion/           Shared animation helpers (looping steps, typing)
   Solutions.tsx     Three audience cards
   Faq.tsx           Questions accordion (one open at a time)
   Demo.tsx          "See it in action" section
@@ -72,7 +76,7 @@ components/
   AgentsRow.tsx     "Live status" section + scrolling strip
   AgentCard.tsx     One agent card
   Footer.tsx        Name, tagline, section links, demo link, copyright
-  icons.tsx         Shield, arrow and security icons
+  icons.tsx         Shield, arrow and menu icons
   useReducedMotionSafe.ts  Reads the visitor's "reduce motion" setting
 content/
   site.ts           ← ALL text, prompts, plans and agents
@@ -85,7 +89,8 @@ next.config.ts      Static export settings
 ## Behaviour notes
 
 - **Design:** light theme, Geist and Geist Mono fonts, near-black text and buttons. Deep green is the accent (eyebrows and "Request a demo" buttons); other colour is used only for status chips (green = active/approved, amber = awaiting, grey = paused, red = blocked). All colours are in `tailwind.config.ts`.
-- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, no scroll fade-ins, and a grid of agent cards instead of the moving strip.
+- **Animations:** the security and solutions animations start when they scroll into view, loop gently, and pause while off-screen.
+- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, every security and solutions animation in its finished state, no scroll fade-ins, and a grid of agent cards instead of the moving strip.
 - **Demo form:** there's no backend yet. Submitting opens the visitor's email app with their details filled in, addressed to `DEMO_EMAIL`, then shows a confirmation. `TODO`s in `content/site.ts` and `components/DemoForm.tsx` mark where to plug in a real form service.
 - No analytics or tracking is included.
 
