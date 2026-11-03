@@ -231,9 +231,10 @@ export const faq = {
     { q: `What is ${SITE_NAME}?`, a: "A security layer that lets brokers, exchanges and fintechs offer AI trading by chat and voice." },
     { q: "Who is it for?", a: "Licensed brokers, crypto exchanges, fintechs and banks." },
     { q: "Does the AI place trades?", a: "No. It drafts the plan. After the user approves, fixed rules carry it out." },
-    { q: "Does it give investment advice?", a: "No. It only carries out users' own instructions." },
     { q: "What if the AI misunderstands?", a: "It asks when unsure. Users see the full plan before anything runs." },
-    { q: "How does a pilot start?", a: "With simulated trading, before any real money moves." },
+    { q: "Can an agent go beyond a user's limits?", a: "No. Every action is checked against the user's limits. Anything outside them is blocked." },
+    { q: "What if someone tries to manipulate the agent?", a: "Suspicious instructions are blocked, and every attempt is logged." },
+    { q: "Can users stop an agent?", a: "Yes. One tap pauses any agent, or all of them." },
   ],
 };
 
