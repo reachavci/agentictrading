@@ -39,6 +39,7 @@ export const header = {
     { label: "Product", href: "#how-it-works" },
     { label: "Security", href: "#security" },
     { label: "Solutions", href: "#solutions" },
+    { label: "FAQ", href: "#faq" },
   ],
 };
 
@@ -211,7 +212,29 @@ export const agents: Agent[] = [
 // ── Footer ──────────────────────────────────────────────────────
 export const footer = {
   tagline: "Security layer for agentic trading",
+  // Footer links; "Request a demo" is added after these automatically.
+  nav: [
+    { label: "How it works", href: "#how-it-works" },
+    { label: "Security", href: "#security" },
+    { label: "Solutions", href: "#solutions" },
+    { label: "FAQ", href: "#faq" },
+  ],
   copyright: `© ${new Date().getFullYear()} ${SITE_NAME}`,
+};
+
+// ── FAQ ─────────────────────────────────────────────────────────
+export const faq = {
+  eyebrow: "FAQ",
+  title: "Questions",
+  // The first question is open when the page loads; only one can be open at a time.
+  items: [
+    { q: `What is ${SITE_NAME}?`, a: "A security layer that lets brokers, exchanges and fintechs offer AI trading by chat and voice." },
+    { q: "Who is it for?", a: "Licensed brokers, crypto exchanges, fintechs and banks." },
+    { q: "Does the AI place trades?", a: "No. It drafts the plan. After the user approves, fixed rules carry it out." },
+    { q: "Does it give investment advice?", a: "No. It only carries out users' own instructions." },
+    { q: "What if the AI misunderstands?", a: "It asks when unsure. Users see the full plan before anything runs." },
+    { q: "How does a pilot start?", a: "With simulated trading, before any real money moves." },
+  ],
 };
 
 // ── Request a demo ──────────────────────────────────────────────

@@ -12,7 +12,8 @@ static site, so it's fast and cheap to host on Vercel.
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
-- **Menu links:** edit `header.nav`.
+- **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer).
+- **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
 - **Solutions:** edit `solutions.items` (icon must be `"broker"`, `"exchange"` or `"bank"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
 - **Security:** edit `security`. The `featured` block is the wide card at the top (its `flow` steps and a `note` line); each of the six `items` needs an `icon` from the list in the comment.
@@ -58,6 +59,7 @@ components/
   HowItWorks.tsx    Four numbered steps
   Security.tsx      Featured flow card + six security cards
   Solutions.tsx     Three audience cards
+  Faq.tsx           Questions accordion (one open at a time)
   Demo.tsx          "See it in action" section
   DemoForm.tsx      Demo form (opens the visitor's email app for now)
   ui.ts             Shared primary button style
@@ -69,7 +71,7 @@ components/
   StatusChip.tsx    Active / Awaiting approval / Paused / Blocked / Approved
   AgentsRow.tsx     "Live status" section + scrolling strip
   AgentCard.tsx     One agent card
-  Footer.tsx        Name, tagline, demo link, copyright
+  Footer.tsx        Name, tagline, section links, demo link, copyright
   icons.tsx         Shield, arrow and security icons
   useReducedMotionSafe.ts  Reads the visitor's "reduce motion" setting
 content/
