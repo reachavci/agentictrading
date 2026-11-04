@@ -185,7 +185,7 @@ function Stop({ delay }: Props) {
     <div ref={ref} className="flex items-center gap-3">
       <span className={`relative h-6 w-10 rounded-pill transition-colors duration-300 ${paused ? "bg-line-strong" : "bg-status-live"}`}>
         <span
-          className={`absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-[0_1px_2px_rgba(10,10,11,0.2)] transition-transform duration-300 ${
+          className={`absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow-[0_1px_2px_rgba(11,18,32,0.2)] transition-transform duration-300 ${
             paused ? "translate-x-0" : "translate-x-4"
           }`}
         />

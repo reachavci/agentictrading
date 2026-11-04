@@ -98,7 +98,7 @@ next.config.ts      Build settings + the X-Robots-Tag noindex header
 
 ## Behaviour notes
 
-- **Design:** light theme, Geist and Geist Mono fonts, near-black text and buttons. Deep green is the accent (eyebrows and "Request a demo" buttons); other colour is used only for status chips (green = active/approved, amber = awaiting, grey = paused, red = blocked). All colours are in `tailwind.config.ts`.
+- **Design:** light theme, Geist and Geist Mono fonts, near-black text. Blue (#2563EB) is the brand accent: buttons, links, eyebrows, the rotating headline verb, active menu link and focus rings. Green, amber, red and grey are used only as status colours (green = active/approved/within limits, amber = awaiting, red = blocked/rejected, grey = paused). All colours are in `tailwind.config.ts`.
 - **Animations:** the security and solutions animations start when they scroll into view, loop gently, and pause while off-screen.
 - **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, every security and solutions animation in its finished state, no scroll fade-ins, and a grid of agent cards instead of the moving strip.
 - **Demo form:** there's no backend yet. Submitting opens the visitor's email app with their details filled in, addressed to `DEMO_EMAIL`, then shows a confirmation. `TODO`s in `content/site.ts` and `components/DemoForm.tsx` mark where to plug in a real form service.

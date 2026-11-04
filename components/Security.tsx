@@ -13,7 +13,7 @@ export default function Security() {
       <div className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8">
         {/* Featured card: animated flow is the main element */}
         <Reveal delay={0.08}>
-          <div className="flex flex-col items-center rounded-card border border-accent/25 bg-bg px-6 py-10 text-center shadow-[0_0_0_5px_rgba(10,107,51,0.05),0_24px_48px_-28px_rgba(10,107,51,0.35)] sm:px-10 sm:py-12">
+          <div className="flex flex-col items-center rounded-card border border-accent/25 bg-bg px-6 py-10 text-center shadow-[0_0_0_5px_rgba(37,99,235,0.06),0_24px_48px_-28px_rgba(37,99,235,0.35)] sm:px-10 sm:py-12">
             <SecurityFlow />
             <p className="mt-4 text-lg leading-relaxed text-ink-secondary [text-wrap:balance] sm:mt-5 sm:text-xl">{featured.note}</p>
           </div>

@@ -59,7 +59,7 @@ export default function DemoForm() {
               required
               autoComplete={autoComplete}
               placeholder={demo.fields[key].placeholder}
-              className="h-12 rounded-input border border-line bg-bg px-4 text-[15px] text-ink placeholder:text-ink-muted/70 focus-visible:border-ink"
+              className="h-12 rounded-input border border-line bg-bg px-4 text-[15px] text-ink placeholder:text-ink-muted focus-visible:border-accent"
             />
           </div>
         ))}

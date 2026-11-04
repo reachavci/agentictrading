@@ -23,7 +23,7 @@ const FINAL = 6;
 // Lit style per step; dim style is shared.
 const LIT = [
   "bg-surface text-ink ring-1 ring-line-strong",
-  "bg-status-active-bg text-status-active-fg",
+  "bg-accent-soft text-accent ring-1 ring-accent/30",
   "bg-ink text-white",
 ];
 const DIM = "bg-surface text-ink-muted";
@@ -34,7 +34,7 @@ function Connector({ lit, moving, arrived }: { lit: boolean; moving: boolean; ar
       <span className={`absolute inset-0 transition-colors duration-500 ${lit ? "bg-accent/60" : "bg-line-strong"}`} />
       {/* Travelling dot */}
       <span
-        className={`absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(10,107,51,0.15)] transition-[left,top,opacity] duration-700 ease-in-out ${
+        className={`absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_0_4px_rgba(37,99,235,0.18)] transition-[left,top,opacity] duration-700 ease-in-out ${
           arrived ? "left-1/2 top-full md:left-full md:top-1/2" : "left-1/2 top-0 md:left-0 md:top-1/2"
         } ${moving ? "opacity-100" : "opacity-0"}`}
       />

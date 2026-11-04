@@ -27,7 +27,7 @@ export default function Hero() {
             </a>
             <a
               href={hero.secondaryCtaHref}
-              className="group inline-flex items-center gap-1.5 rounded-md text-[15px] font-medium text-ink"
+              className="group inline-flex items-center gap-1.5 rounded-md text-[15px] font-medium text-accent hover:text-accent-hover"
             >
               {hero.secondaryCtaLabel}
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

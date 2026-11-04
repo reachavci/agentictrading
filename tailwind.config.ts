@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// Design tokens (light theme). Colour is reserved for meaning: status chips only.
+// Design tokens (light theme). Blue is the brand accent; green/amber/red/grey are status colours only.
 // Use these names in components, e.g. `bg-surface`, `text-ink-muted`.
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
@@ -9,34 +9,37 @@ const config: Config = {
       colors: {
         bg: "#FFFFFF",
         surface: {
-          DEFAULT: "#F4F4F5", // panels behind product shots, agent cards
+          DEFAULT: "#F6F7F9", // soft background: panels, cards
           raised: "#FFFFFF", // cards sitting on a panel
-          sunken: "#F8F8F9", // inputs, plan card
+          sunken: "#F6F7F9", // inputs, plan card
         },
         line: {
-          DEFAULT: "#E6E6E9",
-          strong: "#D4D4D8",
+          DEFAULT: "#E3E7ED", // borders
+          strong: "#CDD4DE", // slightly stronger lines (connectors, dividers)
         },
         ink: {
-          DEFAULT: "#0A0A0B", // primary text, buttons
-          secondary: "#4A4A50",
-          muted: "#6B6B72",
+          DEFAULT: "#0B1220", // primary text, dark buttons
+          secondary: "#5B6474", // body text
+          muted: "#5B6474", // labels, captions
         },
-        // Accent: eyebrows and primary buttons. Same deep green as the "Active" chip.
+        // Brand accent: buttons, links, eyebrows, rotating verb, active nav, focus rings.
         accent: {
-          DEFAULT: "#0A6B33", // eyebrows, primary buttons
-          hover: "#08572A",
+          DEFAULT: "#2563EB",
+          hover: "#1D4ED8",
+          soft: "#EEF2FF", // highlight backgrounds, subtle chips
         },
+        // Status colours: strictly for meaning. Green only appears here.
+        // Chip text for approved/blocked is one shade darker than the base hue for 4.5:1 contrast.
         status: {
-          "active-bg": "#E6F4EA",
-          "active-fg": "#0A6B33",
-          "awaiting-bg": "#FDF1D8",
-          "awaiting-fg": "#7A4D00",
-          "paused-bg": "#EEEEF0",
-          "paused-fg": "#4A4A50",
-          "blocked-bg": "#FCE8E7",
-          "blocked-fg": "#A8201A",
-          live: "#16A34A",
+          "active-bg": "#DCFCE7",
+          "active-fg": "#15803D",
+          "awaiting-bg": "#FEF3C7",
+          "awaiting-fg": "#B45309",
+          "paused-bg": "#F1F3F6",
+          "paused-fg": "#5B6474",
+          "blocked-bg": "#FEE2E2",
+          "blocked-fg": "#B91C1C",
+          live: "#16A34A", // non-text status marks: live dot, "Active" toggle
         },
       },
       borderRadius: {
@@ -51,7 +54,7 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       boxShadow: {
-        product: "0 1px 2px rgba(10,10,11,0.04), 0 12px 32px -8px rgba(10,10,11,0.12), 0 40px 80px -24px rgba(10,10,11,0.10)",
+        product: "0 1px 2px rgba(11,18,32,0.04), 0 12px 32px -8px rgba(11,18,32,0.12), 0 40px 80px -24px rgba(11,18,32,0.10)",
       },
       keyframes: {
         blink: { "0%, 49%": { opacity: "1" }, "50%, 100%": { opacity: "0" } },

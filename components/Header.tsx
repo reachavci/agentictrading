@@ -71,7 +71,7 @@ export default function Header() {
                       href={link.href}
                       aria-current={isActive ? "location" : undefined}
                       className={`rounded-md text-sm font-medium transition-colors ${
-                        isActive ? "text-ink" : "text-ink-muted hover:text-ink"
+                        isActive ? "text-accent" : "text-ink-muted hover:text-ink"
                       }`}
                     >
                       {link.label}
@@ -115,7 +115,7 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 aria-current={active === link.href ? "location" : undefined}
                 className={`block rounded-md py-3 text-base font-medium ${
-                  active === link.href ? "text-ink" : "text-ink-secondary"
+                  active === link.href ? "text-accent" : "text-ink-secondary"
                 }`}
               >
                 {link.label}

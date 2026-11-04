@@ -17,13 +17,13 @@ export default function Footer() {
             <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
               {footer.nav.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="rounded-md text-ink-muted transition-colors hover:text-ink">
+                  <a href={link.href} className="rounded-md text-ink-muted transition-colors hover:text-accent">
                     {link.label}
                   </a>
                 </li>
               ))}
               <li>
-                <a href={header.ctaHref} className="rounded-md font-medium text-ink transition-colors hover:text-ink-secondary">
+                <a href={header.ctaHref} className="rounded-md font-medium text-accent transition-colors hover:text-accent-hover">
                   {header.ctaLabel}
                 </a>
               </li>
