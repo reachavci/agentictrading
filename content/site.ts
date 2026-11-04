@@ -45,7 +45,7 @@ export const header = {
 
 // ── Hero ────────────────────────────────────────────────────────
 export const hero = {
-  eyebrow: "Security layer for agentic trading",
+  eyebrow: "Agentic trading infrastructure",
   title: "Let your users trade by chat and voice",
   // Each entry is one line on desktop; on phones they flow together and wrap naturally.
   subline: [
@@ -133,7 +133,7 @@ export const howItWorks = {
   steps: [
     { title: "Say it", text: 'Users type or speak: "Buy $500 of Nvidia every Friday."' },
     { title: "Review the plan", text: "The agent shows asset, amount, trigger and limits. If anything is missing, it asks." },
-    { title: "Approve", text: "Your users approve. Every order, every time." },
+    { title: "Approve", text: "Your users approve every plan before it runs." },
     { title: "Track", text: "Every action and check appears in a live feed." },
   ],
 };
@@ -178,9 +178,9 @@ export const security = {
   },
   items: [
     { visual: "data", title: "AI can't change the data", text: "Balances, positions and limits live in our system. AI can read them, never change them." },
-    { visual: "autonomy", title: "More autonomy, more checks", text: "Routine actions within limits run on their own. Anything larger or unusual goes back to the user." },
+    { visual: "autonomy", title: "More autonomy, more checks", text: "Routine actions within an approved plan run on their own. Anything larger or unusual goes back to the user." },
     { visual: "identity", title: "Every agent has an identity", text: "Know which agent acted, and for whom." },
-    { visual: "approval", title: "Nothing runs without approval", text: "Users confirm every plan first." },
+    { visual: "approval", title: "Nothing runs without approval", text: "Users confirm every plan before it runs." },
     { visual: "limits", title: "Limits users set", text: "Budgets, assets and frequency caps agents can't exceed." },
     { visual: "alert", title: "Mistakes and manipulation caught", text: "Unusual amounts and suspicious instructions are blocked." },
     { visual: "record", title: "Everything recorded", text: "A tamper-proof trail of every action." },
@@ -199,17 +199,17 @@ export const solutions = {
   items: [
     {
       title: "Brokers",
-      text: "Let your users trade stocks by typing or speaking, under your brand.",
+      text: "Let your users trade stocks by chat and voice, under your brand.",
       chat: { request: "Buy 2 Apple shares", chip: "Plan ready · awaiting approval", chipTone: "awaiting" },
     },
     {
       title: "Crypto exchanges",
-      text: "Add an AI trading assistant with limits, approvals and a full audit trail.",
+      text: "Add AI trading agents with limits, approvals and a full audit trail.",
       chat: { request: "Sell half my ETH", chip: "Limit: max slippage 1%", chipTone: "neutral" },
     },
     {
       title: "Fintechs and banks",
-      text: "Offer AI money features without letting agents act on their own.",
+      text: "Offer AI money features where every agent stays within the rules users set.",
       chat: { request: "Move $200 to savings every Friday", chip: "Approved ✓", chipTone: "approved" },
     },
   ] satisfies { title: string; text: string; chat: { request: string; chip: string; chipTone: ChipTone } }[],
@@ -244,7 +244,7 @@ export const agents: Agent[] = [
   { name: "Dollar hedge", status: "active", description: "Move 30% of cash to USDT if USD/TRY passes 45.", meta: "Checked 2 min ago · not triggered" },
   { name: "BTC dip buy", status: "awaiting", description: "Buy $200 of BTC if it drops below $90,000.", meta: "Plan ready for review" },
   { name: "Tesla stop-loss", status: "active", description: "Sell Tesla if it falls 10% below cost.", meta: "Notify on trigger" },
-  { name: "Withdrawal request", status: "blocked", description: "Send all funds to a new wallet address.", meta: "Outside mandate · logged" },
+  { name: "Withdrawal request", status: "blocked", description: "Send all funds to a new wallet address.", meta: "Outside limits · logged" },
   { name: "Monthly rebalance", status: "paused", description: "Rebalance to 60/40 every month.", meta: "Paused by user" },
   { name: "Apple take-profit", status: "active", description: "Sell Apple at a 25% gain.", meta: "Notify on trigger" },
   { name: "Idle cash sweep", status: "awaiting", description: "Move cash above $20,000 into USDT.", meta: "Plan ready for review" },
@@ -252,7 +252,7 @@ export const agents: Agent[] = [
 
 // ── Footer ──────────────────────────────────────────────────────
 export const footer = {
-  tagline: "Security layer for agentic trading",
+  tagline: "Agentic trading infrastructure",
   // Footer links; "Request a demo" is added after these automatically.
   nav: [
     { label: "How it works", href: "#how-it-works" },
@@ -279,7 +279,7 @@ export const faq = {
     },
     {
       q: "How is it different from a trading bot?",
-      a: "Bots act on signals by themselves. Our AI only drafts the plan. After the user approves, fixed rules carry it out.",
+      a: "Bots act on their own signals. Our agents act on users' instructions: they build a plan, wait for approval, then execute and monitor it within the users' limits.",
     },
     {
       q: "What can users ask the agent to do?",
