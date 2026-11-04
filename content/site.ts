@@ -142,6 +142,14 @@ export const chatExamples: ChatExample[] = [
   },
 ];
 
+// ── Why now (statement between the hero and "How it works") ────
+export const whyNow = {
+  title: "Your users already ask AI about money",
+  // `lead` is shown slightly stronger than `text`; they read as one paragraph.
+  lead: "Soon they'll want it to act.",
+  text: "Agents that move money need AI, security and compliance working as one. We built that infrastructure for agentic trading, so you can offer it in your app, under your brand.",
+};
+
 // ── How it works ────────────────────────────────────────────────
 export const howItWorks = {
   eyebrow: "How it works",

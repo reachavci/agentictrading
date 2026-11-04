@@ -19,6 +19,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
 - **Rotating headline verb:** edit `hero.titleVerbs` (first one is what search engines and screen readers get) plus `hero.titleStart` and `hero.titleEnd`.
+- **Why now:** edit `whyNow` (`title`, the stronger first sentence `lead`, and `text`).
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer).
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
@@ -65,6 +66,7 @@ components/
   Header.tsx        Sticky header: logo, menu links (active one highlighted), mobile menu, "Request a demo"
   Hero.tsx          Headline, subline, chat card, demo button
   RotatingVerb.tsx  Rotating verb in the headline (trade → invest → hedge)
+  WhyNow.tsx        "Why now" statement below the hero
   HowItWorks.tsx    Four numbered steps
   Security.tsx      Featured flow card + eight security cards
   SecurityFlow.tsx  Animated AI plans → User approves → Rules execute

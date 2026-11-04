@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import WhyNow from "@/components/WhyNow";
 import HowItWorks from "@/components/HowItWorks";
 import Security from "@/components/Security";
 import Solutions from "@/components/Solutions";
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <WhyNow />
         <HowItWorks />
         <Security />
         <Solutions />
