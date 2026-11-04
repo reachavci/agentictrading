@@ -144,10 +144,9 @@ export const chatExamples: ChatExample[] = [
 
 // ── Why now (statement between the hero and "How it works") ────
 export const whyNow = {
-  title: "Your users already ask AI about money",
-  // `lead` is shown slightly stronger than `text`; they read as one paragraph.
-  lead: "Now they want it to act.",
-  text: "Agents that move money need AI, security and compliance working as one. We built that infrastructure for agentic trading, so you can offer it in your app, under your brand.",
+  // Heading shown as two lines (same size and colour); line 2 fades in after line 1.
+  lines: ["Your users already ask AI about money.", "Now they want it to act."],
+  text: "Agents that move money need AI, security and compliance working as one. We built that infrastructure for agentic trading, ready to run in your app, under your brand.",
 };
 
 // ── How it works ────────────────────────────────────────────────

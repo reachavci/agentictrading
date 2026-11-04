@@ -19,7 +19,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
 - **Rotating headline verb:** edit `hero.titleVerbs` (first one is what search engines and screen readers get) plus `hero.titleStart` and `hero.titleEnd`.
-- **Why now:** edit `whyNow` (`title`, the stronger first sentence `lead`, and `text`).
+- **Why now:** edit `whyNow` (`lines` = the two heading lines, `text` = the paragraph).
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer).
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
