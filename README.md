@@ -1,6 +1,6 @@
 # [LOGGEDIN]: landing page
 
-Landing page for "[LOGGEDIN]: security layer for agentic trading".
+Landing page for "[LOGGEDIN]: agentic trading infrastructure".
 Built with Next.js (App Router), TypeScript, Tailwind CSS and Framer Motion. The page is
 prerendered as static HTML at build time, so it's fast and cheap to host on Vercel.
 
