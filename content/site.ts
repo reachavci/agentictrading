@@ -147,6 +147,8 @@ export const whyNow = {
   // Heading shown as two lines (same size and colour); line 2 fades in after line 1.
   lines: ["Your users already ask AI about money.", "Now they want it to act."],
   text: "Agents that move money need AI, security and compliance working as one. We built that infrastructure for agentic trading, ready to run in your app, under your brand.",
+  // Placeholder for the essay link (not clickable yet)
+  readLabel: "Read now →",
 };
 
 // ── How it works ────────────────────────────────────────────────

@@ -42,7 +42,11 @@ export default function WhyNow() {
         >
           {whyNow.text}
         </motion.p>
-        {/* TODO: add a "Read why →" link here, to the essay "From attention to intent" once it's published. */}
+        {/* TODO: turn this into a link to the "From attention to intent" essay once it's published
+            (e.g. <a href="/essays/from-attention-to-intent">). Until then it's plain text, so clicking does nothing. */}
+        <motion.p className="mt-6 text-base font-medium text-accent sm:text-lg" {...fade(whyNow.lines.length)}>
+          {whyNow.readLabel}
+        </motion.p>
       </div>
     </section>
   );
