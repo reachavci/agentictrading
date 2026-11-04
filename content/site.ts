@@ -25,7 +25,7 @@ export const SITE_URL =
 export const seo = {
   title: `${SITE_NAME} · Let your users trade by chat and voice`,
   description:
-    "Agentic trading for brokers, exchanges and fintechs. No trade runs without your users' approval. No agent goes beyond their limits.",
+    "Agentic trading infrastructure for brokers, exchanges and fintechs. Agents do the work. Your users stay in control.",
   ogImage: "/og-image.png", // placeholder; replace public/og-image.png later
 };
 
@@ -51,11 +51,8 @@ export const hero = {
   titleStart: "Let your users",
   titleVerbs: ["trade", "invest", "hedge"],
   titleEnd: "by chat and voice",
-  // Each entry is one line on desktop; on phones they flow together and wrap naturally.
-  subline: [
-    "No trade runs without their approval.",
-    "No agent goes beyond their limits.",
-  ],
+  // Each entry is one line on desktop; on phones the text wraps naturally.
+  subline: ["Agents do the work. Your users stay in control."],
   audience: "For brokers, exchanges and fintechs.",
   chatLabel: "Agent",
   ctaLabel: "Request a demo",

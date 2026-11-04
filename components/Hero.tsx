@@ -15,7 +15,7 @@ export default function Hero() {
           <h1 className="mt-5 text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[60px] lg:text-[60px] xl:text-[80px]">
             {hero.titleStart} <RotatingVerb verbs={hero.titleVerbs} /> {hero.titleEnd}
           </h1>
-          <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary sm:text-xl">
+          <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary [text-wrap:pretty] sm:text-xl">
             {/* One sentence per line on wider screens; on phones each sentence stays together */}
             <Sentences text={hero.subline} className="sm:block" />
           </p>
