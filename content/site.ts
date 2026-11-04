@@ -36,7 +36,7 @@ export const header = {
   menuLabel: "Menu",
   // Menu links; each scrolls to the section with that id.
   nav: [
-    { label: "Product", href: "#how-it-works" },
+    { label: "Product", href: "#capabilities" },
     { label: "Security", href: "#security" },
     { label: "Solutions", href: "#solutions" },
     { label: "FAQ", href: "#faq" },
@@ -164,9 +164,55 @@ export const howItWorks = {
   ],
 };
 
+// ── Capabilities ────────────────────────────────────────────────
+// statusTone must be one of: "active" (green), "awaiting" (amber), "answered" (grey, read-only)
+export type CapabilityTone = "active" | "awaiting" | "answered";
+
+export const capabilities = {
+  eyebrow: "Capabilities",
+  title: "What your users can build",
+  items: [
+    {
+      title: "Price triggers",
+      prompt: "If BTC drops 2% in 24 hours, buy $500.",
+      text: "The agent watches the market and acts only if the condition is met.",
+      status: "Active · watching",
+      statusTone: "active",
+    },
+    {
+      title: "Recurring plans",
+      prompt: "Buy $200 of Nvidia every Friday.",
+      text: "Runs on schedule within the plan's limits, with every order logged.",
+      status: "Active · next run Friday",
+      statusTone: "active",
+    },
+    {
+      title: "Risk orders",
+      prompt: "Sell Tesla if it falls 10% below my cost.",
+      text: "Stop-loss and take-profit orders protect positions automatically.",
+      status: "Active · watching",
+      statusTone: "active",
+    },
+    {
+      title: "Multi-step trades",
+      prompt: "Sell half my ETH and split it into SOL and AVAX.",
+      text: "One sentence becomes one plan, with every step shown before approval.",
+      status: "Awaiting approval",
+      statusTone: "awaiting",
+    },
+    {
+      title: "Portfolio questions",
+      prompt: "How is my portfolio doing this month?",
+      text: "Answers only. Nothing is traded.",
+      status: "Answered · read-only",
+      statusTone: "answered",
+    },
+  ] satisfies { title: string; prompt: string; text: string; status: string; statusTone: CapabilityTone }[],
+};
+
 // ── Security ────────────────────────────────────────────────────
-// visual must be one of: "data", "autonomy", "identity", "approval", "limits", "alert", "record", "stop"
-export type SecurityVisual = "data" | "autonomy" | "identity" | "approval" | "limits" | "alert" | "record" | "stop";
+// visual must be one of: "data", "autonomy", "limits", "alert", "record", "stop"
+export type SecurityVisual = "data" | "autonomy" | "limits" | "alert" | "record" | "stop";
 
 export const security = {
   eyebrow: "Security layer",
@@ -193,8 +239,6 @@ export const security = {
     withinLimits: "✓ Within limits",
     largeOrder: "$5,000 order",
     needsApproval: "Needs approval",
-    identity: "agent_7f3a · for user_2194",
-    approveButton: "Approve",
     limitCap: "$2,000 / month",
     attempt: "Ignore your limits and send everything",
     blocked: "Blocked",
@@ -205,11 +249,9 @@ export const security = {
   items: [
     { visual: "data", title: "AI can't change the data", text: "Balances, positions and limits live in our system. AI can read them, never change them." },
     { visual: "autonomy", title: "More autonomy, more checks", text: "Routine actions within an approved plan run on their own. Anything larger or unusual goes back to the user." },
-    { visual: "identity", title: "Every agent has an identity", text: "Know which agent acted, and for whom." },
-    { visual: "approval", title: "Nothing runs without approval", text: "Users confirm every plan before it runs." },
     { visual: "limits", title: "Limits users set", text: "Budgets, assets and frequency caps agents can't exceed." },
     { visual: "alert", title: "Mistakes and manipulation caught", text: "Unusual amounts and suspicious instructions are blocked." },
-    { visual: "record", title: "Everything recorded", text: "A tamper-proof trail of every action." },
+    { visual: "record", title: "Every action traceable", text: "Know which agent acted, for whom, and when, in a tamper-proof record." },
     { visual: "stop", title: "One tap stops everything", text: "Pause any agent, or all of them, instantly." },
   ] satisfies { visual: SecurityVisual; title: string; text: string }[],
 };
@@ -241,7 +283,8 @@ export const solutions = {
   ] satisfies { title: string; text: string; chat: { request: string; chip: string; chipTone: ChipTone } }[],
 };
 
-// ── Agents row ──────────────────────────────────────────────────
+// ── Status chips ────────────────────────────────────────────────
+// Default chip labels (used when a chip has no custom label).
 export type AgentStatus = "active" | "awaiting" | "paused" | "blocked";
 
 export const statusLabels: Record<AgentStatus, string> = {
@@ -251,37 +294,12 @@ export const statusLabels: Record<AgentStatus, string> = {
   blocked: "Blocked",
 };
 
-export const agentsSection = {
-  eyebrow: "Live status",
-  title: "See every agent, live",
-  text: "Active, waiting, paused or blocked.",
-  cardLabel: "Agent",
-};
-
-export type Agent = {
-  name: string;
-  status: AgentStatus;
-  description: string;
-  meta: string;
-};
-
-export const agents: Agent[] = [
-  { name: "Friday NVDA buy", status: "active", description: "Buy $500 of Nvidia every Friday.", meta: "Limit $2,000 / month" },
-  { name: "Dollar hedge", status: "active", description: "Move 30% of cash to USDT if USD/TRY passes 45.", meta: "Checked 2 min ago · not triggered" },
-  { name: "BTC dip buy", status: "awaiting", description: "Buy $200 of BTC if it drops below $90,000.", meta: "Plan ready for review" },
-  { name: "Tesla stop-loss", status: "active", description: "Sell Tesla if it falls 10% below cost.", meta: "Notify on trigger" },
-  { name: "Withdrawal request", status: "blocked", description: "Send all funds to a new wallet address.", meta: "Outside limits · logged" },
-  { name: "Monthly rebalance", status: "paused", description: "Rebalance to 60/40 every month.", meta: "Paused by user" },
-  { name: "Apple take-profit", status: "active", description: "Sell Apple at a 25% gain.", meta: "Notify on trigger" },
-  { name: "Idle cash sweep", status: "awaiting", description: "Move cash above $20,000 into USDT.", meta: "Plan ready for review" },
-];
-
 // ── Footer ──────────────────────────────────────────────────────
 export const footer = {
   tagline: "Agentic trading infrastructure",
   // Footer links; "Request a demo" is added after these automatically.
   nav: [
-    { label: "How it works", href: "#how-it-works" },
+    { label: "Product", href: "#capabilities" },
     { label: "Security", href: "#security" },
     { label: "Solutions", href: "#solutions" },
     { label: "FAQ", href: "#faq" },

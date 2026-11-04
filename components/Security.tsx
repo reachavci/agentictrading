@@ -21,9 +21,9 @@ export default function Security() {
 
         {/* Security cards */}
         <Reveal delay={0.12}>
-          <ul className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {security.items.map((item, i) => (
-              <li key={item.title} className="rounded-card bg-surface p-6 xl:p-5">
+              <li key={item.title} className="rounded-card bg-surface p-6">
                 <SecurityVisualStage visual={item.visual} delay={i * 300} />
                 <h3 className="mt-5 text-lg font-semibold tracking-[-0.02em] text-ink">{item.title}</h3>
                 <p className="mt-1.5 text-[15px] leading-relaxed text-ink-secondary">{item.text}</p>

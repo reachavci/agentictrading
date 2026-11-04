@@ -1,10 +1,8 @@
 "use client";
 
 import { security, type SecurityVisual } from "@/content/site";
-import { Caret, TYPE_MS, useTyped } from "./motion/useTyped";
 import { useSequence } from "./motion/useSequence";
 import StatusChip from "./StatusChip";
-import { primaryButton } from "./ui";
 
 const v = security.visuals;
 type Props = { delay: number };
@@ -67,44 +65,6 @@ function Autonomy({ delay }: Props) {
           <StatusChip variant="awaiting" label={v.needsApproval} />
         </span>
       </div>
-    </div>
-  );
-}
-
-/** ID line typing out. */
-function Identity({ delay }: Props) {
-  const { ref, step, running, reduce } = useSequence([500, v.identity.length * TYPE_MS + 2400, 400], { delay, finalStep: 1 });
-  const typed = useTyped(v.identity, step >= 1, running, reduce);
-  return (
-    <div ref={ref} className={fade(step !== 2)}>
-      <span className="inline-flex h-7 items-center whitespace-nowrap rounded-pill bg-surface px-3 font-mono text-[11px] text-ink">
-        {typed}
-        {step === 1 && <Caret />}
-      </span>
-    </div>
-  );
-}
-
-/** Approve button gets pressed, then a check appears. */
-function Approval({ delay }: Props) {
-  const { ref, step } = useSequence([1000, 220, 2200, 400], { delay, finalStep: 2 });
-  const pressed = step === 1;
-  return (
-    <div ref={ref} className="flex items-center gap-3">
-      <span
-        className={`${primaryButton} h-8 px-4 text-xs transition-transform duration-150 ${pressed ? "scale-95 bg-accent-hover" : "scale-100"}`}
-      >
-        {v.approveButton}
-      </span>
-      <span
-        className={`flex h-7 w-7 items-center justify-center rounded-full bg-status-active-bg text-status-active-fg transition-[opacity,transform] duration-300 ${
-          step === 2 ? "scale-100 opacity-100" : "scale-75 opacity-0"
-        }`}
-      >
-        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M5 12.5l4.5 4.5L19 7.5" />
-        </svg>
-      </span>
     </div>
   );
 }
@@ -198,8 +158,6 @@ function Stop({ delay }: Props) {
 const VISUALS: Record<SecurityVisual, (p: Props) => React.JSX.Element> = {
   data: Data,
   autonomy: Autonomy,
-  identity: Identity,
-  approval: Approval,
   limits: Limits,
   alert: Alert,
   record: Log,
@@ -210,7 +168,7 @@ const VISUALS: Record<SecurityVisual, (p: Props) => React.JSX.Element> = {
 export default function SecurityVisualStage({ visual, delay }: { visual: SecurityVisual; delay: number }) {
   const V = VISUALS[visual];
   return (
-    <div aria-hidden="true" className="flex h-[88px] items-center overflow-hidden rounded-input border border-line bg-bg px-4 xl:px-3">
+    <div aria-hidden="true" className="flex h-[88px] items-center overflow-hidden rounded-input border border-line bg-bg px-4">
       <V delay={delay} />
     </div>
   );
