@@ -46,7 +46,11 @@ export const header = {
 // ── Hero ────────────────────────────────────────────────────────
 export const hero = {
   eyebrow: "Agentic trading infrastructure",
-  title: "Let your users trade by chat and voice",
+  // Headline: "Let your users [verb] by chat and voice". The verb rotates in the accent colour.
+  // Search engines and screen readers always get the first verb ("trade").
+  titleStart: "Let your users",
+  titleVerbs: ["trade", "invest", "hedge"],
+  titleEnd: "by chat and voice",
   // Each entry is one line on desktop; on phones they flow together and wrap naturally.
   subline: [
     "No trade runs without their approval.",
@@ -63,7 +67,10 @@ export const hero = {
 };
 
 export type PlanRow = { label: string; value: string };
-export type ChatExample = { prompt: string; plan: PlanRow[] };
+// A chat example shows either a plan (to approve) or a read-only answer card.
+export type ChatExample =
+  | { prompt: string; plan: PlanRow[] }
+  | { prompt: string; answer: { title: string; rows: PlanRow[]; note: string } };
 
 // Shown one after another in the hero chat card, then it loops.
 export const chatExamples: ChatExample[] = [
@@ -90,6 +97,19 @@ export const chatExamples: ChatExample[] = [
       { label: "Trigger", value: "Now" },
       { label: "Limit", value: "Max slippage 1%" },
     ],
+  },
+  {
+    // Question, not a trade: the agent answers and takes no action.
+    prompt: "How is my portfolio doing this month?",
+    answer: {
+      title: "Portfolio summary",
+      rows: [
+        { label: "This month", value: "+3.2%" },
+        { label: "Top mover", value: "NVDA +8.1%" },
+        { label: "Cash", value: "$4,200" },
+      ],
+      note: "Read-only · no action taken",
+    },
   },
   {
     prompt: "Set a 10% stop-loss on Tesla",
@@ -283,7 +303,7 @@ export const faq = {
     },
     {
       q: "What can users ask the agent to do?",
-      a: "Market and conditional orders, recurring buys, stop-losses, rebalancing and multi-step trades.",
+      a: "Ask about markets and their portfolio, and set up market and conditional orders, recurring buys, stop-losses, rebalancing and multi-step trades.",
     },
     {
       q: "What if AI misunderstands?",

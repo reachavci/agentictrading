@@ -16,7 +16,7 @@ const ROW_GAP = 380; // between plan rows
 const APPROVE_DELAY = 1200; // "Awaiting approval" → "Approved ✓"
 const HOLD = 2200; // pause before the next prompt
 
-type Status = "none" | "awaiting" | "approved";
+type Status = "none" | "awaiting" | "approved" | "info"; // "info" = read-only answer label
 
 type State = {
   index: number;
@@ -64,7 +64,9 @@ export default function ChatDemo() {
 
     (async () => {
       for (let index = 0; !cancelled; index = (index + 1) % chatExamples.length) {
-        const { prompt, plan } = chatExamples[index];
+        const example = chatExamples[index];
+        const { prompt } = example;
+        const rows = "plan" in example ? example.plan : example.answer.rows;
         setS({ ...EMPTY, index });
 
         // 1. Type the prompt
@@ -83,19 +85,24 @@ export default function ChatDemo() {
         await sleep(PLAN_DELAY);
         if (cancelled) return;
         setS((p) => ({ ...p, planVisible: true }));
-        for (let r = 1; r <= plan.length; r++) {
+        for (let r = 1; r <= rows.length; r++) {
           await sleep(ROW_GAP);
           if (cancelled) return;
           setS((p) => ({ ...p, rows: r }));
         }
 
-        // 4. Awaiting approval → Approved
+        // 4. Plan: Awaiting approval → Approved. Answer: read-only label, no approval needed.
         await sleep(ROW_GAP);
         if (cancelled) return;
-        setS((p) => ({ ...p, status: "awaiting" }));
-        await sleep(APPROVE_DELAY);
-        if (cancelled) return;
-        setS((p) => ({ ...p, status: "approved" }));
+        if ("answer" in example) {
+          setS((p) => ({ ...p, status: "info" }));
+          await sleep(APPROVE_DELAY);
+        } else {
+          setS((p) => ({ ...p, status: "awaiting" }));
+          await sleep(APPROVE_DELAY);
+          if (cancelled) return;
+          setS((p) => ({ ...p, status: "approved" }));
+        }
 
         // 5. Hold, then next prompt
         await sleep(HOLD);
@@ -110,6 +117,7 @@ export default function ChatDemo() {
 
   const example = chatExamples[s.index];
   const total = chatExamples.length;
+  const card = "plan" in example ? { title: hero.planTitle, rows: example.plan } : { title: example.answer.title, rows: example.answer.rows };
 
   return (
     <div className="w-full rounded-chat border border-line bg-surface-raised p-4 text-left shadow-product sm:p-5">
@@ -150,8 +158,8 @@ export default function ChatDemo() {
                   transition={{ duration: 0.4, ease }}
                 >
                   <PlanCard
-                    title={hero.planTitle}
-                    rows={example.plan}
+                    title={card.title}
+                    rows={card.rows}
                     renderRow={(row, i, content) => (
                       <motion.div
                         key={row.label}
@@ -172,7 +180,11 @@ export default function ChatDemo() {
                             exit={{ opacity: 0, y: -4 }}
                             transition={{ duration: 0.25 }}
                           >
-                            {s.status === "awaiting" ? (
+                            {s.status === "info" && "answer" in example ? (
+                              <span className="inline-flex items-center whitespace-nowrap rounded-pill bg-status-paused-bg px-2.5 py-1 text-xs font-medium leading-none text-status-paused-fg">
+                                {example.answer.note}
+                              </span>
+                            ) : s.status === "awaiting" ? (
                               <StatusChip variant="awaiting" label={hero.statusAwaiting} />
                             ) : (
                               <StatusChip variant="approved" label={hero.statusApproved} />

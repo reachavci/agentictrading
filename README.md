@@ -18,13 +18,14 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Company name:** change `SITE_NAME = "[LOGGEDIN]"` at the top. It updates the header, page title and share preview.
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header`, `agentsSection` and `footer` blocks.
+- **Rotating headline verb:** edit `hero.titleVerbs` (first one is what search engines and screen readers get) plus `hero.titleStart` and `hero.titleEnd`.
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer).
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
 - **Solutions:** edit `solutions.items`. Each card's `chat` sets the mini chat preview: the `request` that types out, and the `chip` shown after it (`chipTone`: `"awaiting"`, `"neutral"` or `"approved"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
 - **Security:** edit `security`. The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the eight `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
-- **Chat examples:** edit `chatExamples`. Each one has a `prompt` and 3 `plan` rows. You can add or remove examples, and the counter adjusts.
+- **Chat examples:** edit `chatExamples`. Each one has a `prompt` and either 3 `plan` rows (shown for approval) or an `answer` card (`title`, 3 `rows`, `note`) for read-only questions. You can add or remove examples, and the counter adjusts.
 - **Agent cards:** edit `agents`. `status` must be one of `"active"`, `"awaiting"`, `"paused"` or `"blocked"`.
 
 Keep the quotes and commas as they are. If the site fails to build after an edit, a missing quote or comma is the usual cause.
@@ -63,6 +64,7 @@ app/
 components/
   Header.tsx        Sticky header: logo, menu links (active one highlighted), mobile menu, "Request a demo"
   Hero.tsx          Headline, subline, chat card, demo button
+  RotatingVerb.tsx  Rotating verb in the headline (trade → invest → hedge)
   HowItWorks.tsx    Four numbered steps
   Security.tsx      Featured flow card + eight security cards
   SecurityFlow.tsx  Animated AI plans → User approves → Rules execute
