@@ -49,3 +49,36 @@ export function CloseIcon(props: IconProps) {
     </svg>
   );
 }
+
+function Stroke({ children, ...props }: IconProps & { children: React.ReactNode }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8}
+      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      {children}
+    </svg>
+  );
+}
+
+/** Icons for the solutions cards, keyed by the `icon` names in content/site.ts. */
+export const SolutionIcons = {
+  // Chart line
+  broker: (p: IconProps) => (
+    <Stroke {...p}>
+      <path d="M3 3v18h18" />
+      <path d="M7 15l4-4 3 3 5-6" />
+    </Stroke>
+  ),
+  // Coin / token
+  exchange: (p: IconProps) => (
+    <Stroke {...p}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M14.8 9.2c-.5-.8-1.5-1.2-2.8-1.2-1.7 0-2.8.8-2.8 2s1.1 1.7 2.8 2 2.8.8 2.8 2-1.1 2-2.8 2c-1.3 0-2.3-.4-2.8-1.2M12 6.5V8M12 16v1.5" />
+    </Stroke>
+  ),
+  // Bank building
+  bank: (p: IconProps) => (
+    <Stroke {...p}>
+      <path d="M3 9.5L12 4l9 5.5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18" />
+    </Stroke>
+  ),
+};

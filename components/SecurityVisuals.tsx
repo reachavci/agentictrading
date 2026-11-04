@@ -94,22 +94,31 @@ function Limits({ delay }: Props) {
   );
 }
 
-/** Instruction appears, gets struck through, "Blocked" chip appears. */
+/** An unusual amount asks for confirmation; a manipulation attempt is struck through and blocked. */
 function Alert({ delay }: Props) {
-  const { ref, step } = useSequence([500, 900, 600, 2200, 400], { delay, finalStep: 3 });
-  const shown = step >= 1 && step <= 3;
+  // empty, amount, Confirm?, attempt, struck + Blocked (final), fade
+  const { ref, step } = useSequence([500, 600, 900, 800, 2200, 400], { delay, finalStep: 4 });
+  const on = (from: number) => step >= from && step <= 4;
   return (
-    <div ref={ref} className="flex flex-col items-start gap-2">
-      <span
-        className={`font-mono text-[11px] leading-snug line-through transition-[opacity,text-decoration-color,color] duration-500 ${
-          step >= 2 && step <= 3 ? "text-ink-muted decoration-status-blocked-fg" : "text-ink decoration-transparent"
-        } ${shown ? "opacity-100" : "opacity-0"}`}
-      >
-        &quot;{v.attempt}&quot;
-      </span>
-      <span className={fade(step === 3)}>
-        <StatusChip variant="blocked" label={v.blocked} />
-      </span>
+    <div ref={ref} className="flex w-full flex-col gap-2">
+      <div className={`flex items-center justify-between gap-2 ${fade(on(1))}`}>
+        <span className="whitespace-nowrap font-mono text-[11px] text-ink">{v.unusualAmount}</span>
+        <span className={`shrink-0 ${fade(on(2))}`}>
+          <StatusChip variant="awaiting" label={v.confirm} />
+        </span>
+      </div>
+      <div className={`flex items-start justify-between gap-2 ${fade(on(3))}`}>
+        <span
+          className={`min-w-0 font-mono text-[11px] leading-snug line-through transition-[text-decoration-color,color] duration-500 ${
+            on(4) ? "text-ink-muted decoration-status-blocked-fg" : "text-ink decoration-transparent"
+          }`}
+        >
+          &quot;{v.attempt}&quot;
+        </span>
+        <span className={`shrink-0 ${fade(on(4))}`}>
+          <StatusChip variant="blocked" label={v.blocked} />
+        </span>
+      </div>
     </div>
   );
 }

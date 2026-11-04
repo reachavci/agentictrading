@@ -36,12 +36,16 @@ function CapabilityCard({ item, index, reduce }: { item: Item; index: number; re
     <li ref={ref} className="flex flex-col rounded-card bg-surface p-6">
       <h3 className="text-lg font-semibold tracking-[-0.02em] text-ink">{item.title}</h3>
 
-      {/* Example prompt. The faint copy holds the final size (and is what screen readers read);
-          the typed copy on top is decorative. */}
+      {/* Example prompt. The real text is in the page once: the invisible copy that holds the
+          final size, which screen readers and search engines read. The typing copy on top is
+          drawn with CSS (content: attr(data-typed)), so it isn't page text, and it's aria-hidden. */}
       <p className="relative mt-4 rounded-input border border-line bg-bg px-3.5 py-2.5 font-mono text-[13px] leading-relaxed text-ink">
         <span className="opacity-0">{item.prompt}</span>
-        <span aria-hidden="true" className="absolute inset-0 px-3.5 py-2.5">
-          {typed}
+        <span
+          aria-hidden="true"
+          data-typed={typed}
+          className="absolute inset-0 px-3.5 py-2.5 before:content-[attr(data-typed)]"
+        >
           {play && !done && <Caret />}
         </span>
       </p>
