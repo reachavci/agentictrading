@@ -1,5 +1,6 @@
 import { security } from "@/content/site";
 import SecurityFlow from "./SecurityFlow";
+import { ArrowRightIcon } from "./icons";
 import SecurityVisualStage from "./SecurityVisuals";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
@@ -31,6 +32,14 @@ export default function Security() {
             ))}
           </ul>
         </Reveal>
+
+        <a
+          href={security.linkHref}
+          className="group mt-8 inline-flex items-center gap-1.5 rounded-md text-[15px] font-medium text-accent transition-colors hover:text-accent-hover"
+        >
+          {security.linkLabel}
+          <ArrowRightIcon className="h-4 w-4 motion-safe:transition-transform group-hover:translate-x-0.5" />
+        </a>
       </div>
     </section>
   );

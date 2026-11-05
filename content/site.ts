@@ -23,9 +23,9 @@ export const SITE_URL =
 
 // ── SEO ─────────────────────────────────────────────────────────
 export const seo = {
-  title: `${SITE_NAME} · Let your users trade by chat and voice`,
+  title: `${SITE_NAME} · Agentic trading infrastructure for your platform`,
   description:
-    "Agentic trading infrastructure for brokers, exchanges and fintechs. Agents do the work. Your users stay in control.",
+    "Let your users trade, invest and hedge by chat and voice. Agents do the work. Your users stay in control.",
   ogImage: "/og-image.png", // placeholder; replace public/og-image.png later
 };
 
@@ -45,19 +45,18 @@ export const header = {
 
 // ── Hero ────────────────────────────────────────────────────────
 export const hero = {
-  eyebrow: "Agentic trading infrastructure",
-  // Headline: "Let your users [verb] by chat and voice". The verb rotates in the accent colour.
-  // Search engines and screen readers always get the first verb ("trade").
-  titleStart: "Let your users",
-  titleVerbs: ["trade", "invest", "hedge"],
-  titleEnd: "by chat and voice",
-  // Each entry is one line on desktop; on phones the text wraps naturally.
-  subline: ["Agents do the work. Your users stay in control."],
-  audience: "For brokers, exchanges and fintechs.",
+  title: "Agentic trading infrastructure for your platform",
+  // Large line: "Let your users [verb] by chat and voice". The verb rotates in brand blue.
+  // Screen readers and search engines read `verbsReadable` in place of the rotating verb.
+  sublineStart: "Let your users",
+  sublineVerbs: ["trade", "invest", "hedge"],
+  verbsReadable: "trade, invest and hedge",
+  sublineEnd: "by chat and voice",
+  supporting: "Agents do the work. Your users stay in control.",
   chatLabel: "Agent",
   ctaLabel: "Request a demo",
-  secondaryCtaLabel: "How it works",
-  secondaryCtaHref: "#how-it-works",
+  secondaryCtaLabel: "Why agentic trading", // arrow is added automatically
+  secondaryCtaHref: "/why-agentic-trading",
   statusAwaiting: "Awaiting approval",
   statusApproved: "Approved ✓",
   planTitle: "Proposed plan",
@@ -142,14 +141,12 @@ export const chatExamples: ChatExample[] = [
   },
 ];
 
-// ── Why now (statement between the hero and "How it works") ────
-export const whyNow = {
-  // Heading shown as two lines (same size and colour); line 2 fades in after line 1.
-  lines: ["Your users already ask AI about money.", "Now they want it to act."],
-  text: "Agents that move money need AI, security and compliance working as one. We built that infrastructure for agentic trading, ready to run in your app, under your brand.",
-  // Link to the agentic trading page
-  linkLabel: "Learn more →",
-  linkHref: "/agentic-trading",
+// ── Essay teaser (under the hero) ──────────────────────────────
+export const essayTeaser = {
+  title: "Your users plan more trades than they place.",
+  text: "They mean to buy every month and forget. They plan to sell if a price drops and miss the moment. Agents turn that intent into orders, and into steadier volume for your platform.",
+  linkLabel: "Read more", // arrow is added automatically
+  linkHref: "/why-agentic-trading",
 };
 
 // ── How it works ────────────────────────────────────────────────
@@ -217,6 +214,9 @@ export type SecurityVisual = "data" | "autonomy" | "limits" | "alert" | "record"
 
 export const security = {
   eyebrow: "Security",
+  // Text link under the security cards (arrow is added automatically)
+  linkLabel: "See how control works",
+  linkHref: "/agentic-trading",
   title: "Agents only do what your users ask",
   featured: {
     // The three-step flow is the main element of the wide card; the note sits under it.

@@ -13,13 +13,14 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 
 ## Change the company name or any text
 
-**All text lives in the content files:** [`content/site.ts`](content/site.ts) for the homepage, header and footer, and [`content/agentic-trading.ts`](content/agentic-trading.ts) for the `/agentic-trading` page. You don't need to touch anything else.
+**All text lives in the content files:** [`content/site.ts`](content/site.ts) for the homepage, header and footer, [`content/agentic-trading.ts`](content/agentic-trading.ts) for the `/agentic-trading` page, and [`content/why-agentic-trading.ts`](content/why-agentic-trading.ts) for the `/why-agentic-trading` essay. You don't need to touch anything else.
 
 - **Company name:** change `SITE_NAME = "[LOGGEDIN]"` at the top. It updates the header, page title and share preview.
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header` and `footer` blocks.
-- **Rotating headline verb:** edit `hero.titleVerbs` (first one is what search engines and screen readers get) plus `hero.titleStart` and `hero.titleEnd`.
-- **Why now:** edit `whyNow` (`lines` = the two heading lines, `text` = the paragraph, `linkLabel`/`linkHref` = the "Learn more →" link to `/agentic-trading`).
+- **Hero:** `hero.title` is the headline. The large line under it is `hero.sublineStart` + rotating `hero.sublineVerbs` + `hero.sublineEnd`; screen readers and search engines read `hero.verbsReadable` ("trade, invest and hedge") in place of the rotating verb. `hero.supporting` is the small line.
+- **Essay teaser (under the hero):** edit `essayTeaser` (heading, paragraph and the "Read more" link to `/why-agentic-trading`).
+- **Essay page:** edit `content/why-agentic-trading.ts`. The body is a list of blocks: paragraphs (`"p"`) and bulleted lists (`"list"`).
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer). They point to homepage sections as `/#section`, so they work from every page.
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
@@ -60,14 +61,15 @@ Then run `npx next start` to serve that build at http://localhost:3000.
 ```
 app/
   agentic-trading/page.tsx  The /agentic-trading page (hero, thesis, three pillars, FAQ, call to action)
+  why-agentic-trading/page.tsx  The essay page (reading layout)
   layout.tsx        Fonts, page title, SEO and share-preview tags
   page.tsx          Puts the sections together in order
   globals.css       Base styles and focus outlines
 components/
   Header.tsx        Sticky header: logo, menu links (active one highlighted), mobile menu, "Request a demo"
-  Hero.tsx          Headline, subline, chat card, demo button
-  RotatingVerb.tsx  Rotating verb in the headline (trade → invest → hedge)
-  WhyNow.tsx        "Why now" statement below the hero
+  Hero.tsx          Headline, rotating-verb line, chat card, buttons
+  RotatingVerb.tsx  Rotating verb in the hero line (trade → invest → hedge)
+  EssayTeaser.tsx   Essay teaser below the hero
   HowItWorks.tsx    Four numbered steps
   Capabilities.tsx  Five capability cards; prompts type out once on scroll
   Security.tsx      Featured flow card + six security cards
@@ -85,7 +87,6 @@ components/
   ui.ts             Shared primary button style
   SectionHeader.tsx Eyebrow, heading and intro used by each section
   Reveal.tsx        Fade-up when a section scrolls into view
-  Sentences.tsx     Keeps each sentence together when text wraps
   ChatDemo.tsx      The animated chat (typing → plan → approval loop)
   PlanCard.tsx      "Proposed plan" box
   StatusChip.tsx    Active / Awaiting approval / Paused / Blocked / Approved
@@ -94,6 +95,7 @@ components/
   useReducedMotionSafe.ts  Reads the visitor's "reduce motion" setting
 content/
   agentic-trading.ts  ← text for the /agentic-trading page
+  why-agentic-trading.ts  ← text for the essay page
   site.ts           ← ALL text, prompts, plans and capabilities
 public/
   og-image.png      Share preview image (placeholder)
@@ -106,7 +108,7 @@ next.config.ts      Build settings + the X-Robots-Tag noindex header
 
 - **Design:** light theme, Geist and Geist Mono fonts, near-black text. Blue (#2563EB) is the brand accent: buttons, links, eyebrows, the rotating headline verb, active menu link and focus rings. Green, amber, red and grey are used only as status colours (green = active/approved/within limits, amber = awaiting, red = blocked/rejected, grey = paused). All colours are in `tailwind.config.ts`.
 - **Animations:** the security animations start when they scroll into view, loop gently, and pause while off-screen.
-- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, the headline verb fixed on "trade", capability prompts already typed, every security animation in its finished state, and no scroll fade-ins.
+- **Reduced motion:** visitors who turn on "reduce motion" in their device settings see the first chat example already approved, the hero verb fixed on "trade", capability prompts already typed, every security animation in its finished state, and no scroll fade-ins.
 - **Demo form:** there's no backend yet. Submitting opens the visitor's email app with their details filled in, addressed to `DEMO_EMAIL`, then shows a confirmation. `TODO`s in `content/site.ts` and `components/DemoForm.tsx` mark where to plug in a real form service.
 - No analytics or tracking is included.
 

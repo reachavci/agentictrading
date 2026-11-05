@@ -3,7 +3,6 @@ import ChatDemo from "./ChatDemo";
 import RotatingVerb from "./RotatingVerb";
 import { ArrowRightIcon } from "./icons";
 import { primaryButton } from "./ui";
-import Sentences from "./Sentences";
 
 export default function Hero() {
   return (
@@ -11,15 +10,15 @@ export default function Hero() {
       <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,540px)] xl:gap-16">
         {/* Text */}
         <div className="min-w-0">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent [text-wrap:balance]">{hero.eyebrow}</p>
-          <h1 className="mt-5 text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[60px] lg:text-[60px] xl:text-[80px]">
-            {hero.titleStart} <RotatingVerb verbs={hero.titleVerbs} /> {hero.titleEnd}
+          <h1 className="text-[40px] font-semibold leading-[1.02] tracking-[-0.045em] text-ink [text-wrap:balance] sm:text-[52px] xl:text-[60px]">
+            {hero.title}
           </h1>
-          <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-ink-secondary [text-wrap:pretty] sm:text-xl">
-            {/* One sentence per line on wider screens; on phones each sentence stays together */}
-            <Sentences text={hero.subline} className="sm:block" />
+          {/* Large subline with the rotating verb. Screen readers hear
+              "Let your users trade, invest and hedge by chat and voice". */}
+          <p className="mt-6 text-[24px] font-medium leading-[1.25] tracking-[-0.025em] text-ink [text-wrap:balance] sm:text-[30px] xl:text-[34px]">
+            {hero.sublineStart} <RotatingVerb verbs={hero.sublineVerbs} readable={hero.verbsReadable} /> {hero.sublineEnd}
           </p>
-          <p className="mt-4 text-[15px] text-ink-muted">{hero.audience}</p>
+          <p className="mt-4 text-[17px] leading-relaxed text-ink-muted">{hero.supporting}</p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a href="#demo" className={`${primaryButton} h-12 px-7 text-base`}>
