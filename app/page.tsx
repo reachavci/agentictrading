@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import EssayTeaser from "@/components/EssayTeaser";
+import Volume from "@/components/Volume";
 import HowItWorks from "@/components/HowItWorks";
 import Capabilities from "@/components/Capabilities";
 import Security from "@/components/Security";
@@ -16,6 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <EssayTeaser />
+        <Volume />
         <HowItWorks />
         <Capabilities />
         <Security />

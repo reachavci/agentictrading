@@ -154,6 +154,21 @@ export const essayTeaser = {
   linkHref: "/why-agentic-trading",
 };
 
+// ── Volume (after the essay teaser) ─────────────────────────────
+// In each `stat`, numbers of 10 or more count up from 0 when the section scrolls into view;
+// smaller numbers simply appear.
+export const volume = {
+  eyebrow: "Volume",
+  title: "One sentence, months of orders",
+  text: "Agents don't just make trading easier. They turn your users' intent into recurring order flow. That's how platforms will capture volume.",
+  items: [
+    { stat: "365 orders a year", prompt: "Buy $20 of Bitcoin every day.", text: "One message, a full year of daily orders." },
+    { stat: "36 orders a year", prompt: "Invest part of my salary into three ETFs every month.", text: "Recurring investing, without opening an order screen." },
+    { stat: "When it matters", prompt: "If the dollar jumps 2% in a day, move 20% of my cash into dollars.", text: "Orders that fire exactly when users usually freeze." },
+    { stat: "1 decision, 2 orders", prompt: "Sell half at +10%, the rest at +20%.", text: "One decision becomes orders that run on their own." },
+  ],
+};
+
 // ── How it works ────────────────────────────────────────────────
 export const howItWorks = {
   eyebrow: "How it works",

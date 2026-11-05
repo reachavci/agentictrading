@@ -21,6 +21,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Hero:** `hero.title` is the headline. The large line under it is `hero.sublineStart` + rotating `hero.sublineVerbs` + `hero.sublineEnd`; screen readers and search engines read `hero.verbsReadable` ("trade, invest and hedge") in place of the rotating verb. `hero.supporting` is the small line. `hero.floatingPrompts` are the faint prompts at the left and right edges (shown only on screens 1400px and wider, hidden with reduced motion).
 - **Essay teaser (under the hero):** edit `essayTeaser` (heading, paragraph and the "Read more" link to `/why-agentic-trading`).
 - **Essay page:** edit `content/why-agentic-trading.ts`. The body is a list of blocks: paragraphs (`"p"`) and bulleted lists (`"list"`).
+- **Volume:** edit `volume` (`stat`, `prompt`, `text` per card). Numbers of 10 or more in a `stat` count up on scroll.
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer). They point to homepage sections as `/#section`, so they work from every page.
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
@@ -71,6 +72,7 @@ components/
   HeroPrompts.tsx   Faint floating prompts at the hero's edges
   RotatingVerb.tsx  Rotating verb in the hero line (trade → invest → hedge)
   EssayTeaser.tsx   Essay teaser below the hero
+  Volume.tsx        "One sentence, months of orders" cards with counting numbers
   HowItWorks.tsx    Four numbered steps
   Capabilities.tsx  Five capability cards; prompts type out once on scroll
   Security.tsx      Featured flow card + six security cards
