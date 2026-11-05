@@ -338,7 +338,7 @@ export const faq = {
     },
     {
       q: "What stops an agent from going too far?",
-      a: "Every action is checked against the user's limits. Anything outside them, including suspicious instructions, is blocked and logged.",
+      a: "Every action is checked against the user's limits. Unusual amounts go back to the user for confirmation. Suspicious or out-of-limit actions are blocked and logged.",
     },
     {
       q: "Can users stop an agent?",

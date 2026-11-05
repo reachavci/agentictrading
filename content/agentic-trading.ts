@@ -7,13 +7,13 @@ import { SITE_NAME } from "./site";
 export const seo = {
   title: `When agents act, control is the product · ${SITE_NAME}`,
   description:
-    "AI models and standards will keep changing. What users need from an agent that moves money won't: a clear plan, their approval, firm limits and a record of everything.",
+    "AI keeps changing. What users need from an agent that handles their money stays the same: a clear plan, their approval, firm limits and a full record.",
 };
 
 export const hero = {
   title: "When agents act, control is the product",
   subline:
-    "AI models and standards will keep changing. What users need from an agent that moves money won't: a clear plan, their approval, firm limits and a record of everything.",
+    "AI keeps changing. What users need from an agent that handles their money stays the same: a clear plan, their approval, firm limits and a full record.",
   ctaLabel: "Request a demo",
   ctaHref: "/#demo",
   // Hero visual: a dark card with a plan card and a shield-with-check
@@ -77,7 +77,7 @@ export const faq = {
     },
     {
       q: "How do agents stay within users' limits?",
-      a: "Fixed rules check every action against the user's limits, separately from AI. Anything outside them is flagged or blocked.",
+      a: "Fixed rules check every action against the user's limits, separately from AI. Unusual amounts go back to the user for confirmation. Suspicious or out-of-limit actions are blocked and logged.",
     },
     {
       q: "How does a pilot start?",
