@@ -12,8 +12,12 @@ import SectionHeader from "./SectionHeader";
  */
 type FaqContent = { eyebrow: string; title: string; items: { q: string; a: string }[] };
 
-/** Pass `content` to show a different set of questions (defaults to the homepage FAQ). */
-export default function Faq({ content: faq = homeFaq }: { content?: FaqContent }) {
+/**
+ * Pass `content` to show a different set of questions (defaults to the homepage FAQ).
+ * `layout="split"` puts the heading on the left and the accordion on the right on desktop.
+ */
+export default function Faq({ content: faq = homeFaq, layout = "stacked" }: { content?: FaqContent; layout?: "stacked" | "split" }) {
+  const split = layout === "split";
   const [open, setOpen] = useState<number | null>(0);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -32,10 +36,21 @@ export default function Faq({ content: faq = homeFaq }: { content?: FaqContent }
 
   return (
     <section id="faq" aria-labelledby="faq-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
-      <SectionHeader id="faq-title" eyebrow={faq.eyebrow} title={faq.title} />
+      {split ? null : <SectionHeader id="faq-title" eyebrow={faq.eyebrow} title={faq.title} />}
 
-      <Reveal className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
-        <ul className="max-w-[800px] border-t border-line">
+      <Reveal
+        className={`mx-auto max-w-[1200px] px-5 sm:px-8 ${split ? "grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16" : "mt-10"}`}
+        delay={split ? 0 : 0.08}
+      >
+        {split && (
+          <div>
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">{faq.eyebrow}</p>
+            <h2 id="faq-title" className="mt-4 text-[40px] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-[56px] lg:text-[64px]">
+              {faq.title}
+            </h2>
+          </div>
+        )}
+        <ul className={`border-t border-line ${split ? "" : "max-w-[800px]"}`}>
           {faq.items.map((item, i) => {
             const isOpen = open === i;
             return (

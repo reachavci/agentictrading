@@ -2,6 +2,7 @@ import { pillars, type PillarVisual } from "@/content/agentic-trading";
 import ChatDemo from "../ChatDemo";
 import Reveal from "../Reveal";
 import SecurityVisualStage from "../SecurityVisuals";
+import DecisionFlow from "./DecisionFlow";
 
 function CheckIcon() {
   return (
@@ -15,11 +16,11 @@ function CheckIcon() {
 /** Visuals reused from the homepage (they keep their own animations and reduced-motion states). */
 function Visual({ name }: { name: PillarVisual }) {
   if (name === "plan") return <ChatDemo />;
-  const [a, b] = name === "rules" ? (["limits", "alert"] as const) : (["record", "stop"] as const);
+  if (name === "flow") return <DecisionFlow />;
   return (
     <div className="flex flex-col gap-3">
-      <SecurityVisualStage visual={a} delay={0} />
-      <SecurityVisualStage visual={b} delay={400} />
+      <SecurityVisualStage visual="record" delay={0} />
+      <SecurityVisualStage visual="stop" delay={400} />
     </div>
   );
 }
@@ -44,7 +45,7 @@ export default function Pillars() {
               </ul>
             </div>
             {/* Visual */}
-            <div className="min-w-0 rounded-panel bg-surface p-3 sm:p-8">
+            <div className="min-w-0 rounded-panel bg-surface bg-[radial-gradient(theme(colors.line.strong)_1px,transparent_1px)] bg-[length:16px_16px] p-3 sm:p-8">
               <Visual name={p.visual} />
             </div>
           </Reveal>

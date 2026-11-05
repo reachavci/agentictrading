@@ -3,8 +3,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Faq from "@/components/Faq";
 import Reveal from "@/components/Reveal";
-import SectionHeader from "@/components/SectionHeader";
 import Pillars from "@/components/agentic/Pillars";
+import HeroVisual from "@/components/agentic/HeroVisual";
+import DarkLog from "@/components/agentic/DarkLog";
 import { primaryButton } from "@/components/ui";
 import { SITE_NAME, seo as homeSeo } from "@/content/site";
 import { closing, faq, hero, seo, thesis } from "@/content/agentic-trading";
@@ -30,39 +31,55 @@ export default function AgenticTradingPage() {
     <div id="top" className="min-h-screen overflow-x-clip">
       <Header />
       <main>
-        {/* Hero */}
+        {/* Hero: text left, visual right (stacked on mobile) */}
         <section className="pb-16 pt-12 sm:pb-24 sm:pt-16 lg:pt-24">
-          <Reveal className="mx-auto max-w-[1200px] px-5 sm:px-8">
-            <h1 className="max-w-[16ch] text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink [text-wrap:balance] sm:text-[60px] lg:text-[72px]">
-              {hero.title}
-            </h1>
-            <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-ink-secondary [text-wrap:pretty] sm:text-xl">{hero.subline}</p>
-            <a href={hero.ctaHref} className={`${primaryButton} mt-9 h-12 px-7 text-base`}>
-              {hero.ctaLabel}
-            </a>
-          </Reveal>
+          <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+            <Reveal className="min-w-0">
+              <h1 className="text-[44px] font-semibold leading-[1] tracking-[-0.045em] text-ink [text-wrap:balance] sm:text-[60px] lg:text-[64px]">
+                {hero.title}
+              </h1>
+              <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-ink-secondary [text-wrap:pretty] sm:text-xl">{hero.subline}</p>
+              <a href={hero.ctaHref} className={`${primaryButton} mt-9 h-12 px-7 text-base`}>
+                {hero.ctaLabel}
+              </a>
+            </Reveal>
+            <Reveal className="min-w-0" delay={0.1}>
+              <HeroVisual />
+            </Reveal>
+          </div>
         </section>
 
-        {/* Thesis */}
-        <section aria-labelledby="thesis-title" className="border-t border-line py-16 sm:py-20">
-          <SectionHeader id="thesis-title" title={thesis.title} text={thesis.text} />
+        {/* Thesis: centred */}
+        <section aria-labelledby="thesis-title" className="border-t border-line px-5 py-16 sm:px-8 sm:py-24">
+          <Reveal className="mx-auto max-w-[760px] text-center">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-accent">{thesis.eyebrow}</p>
+            <h2 id="thesis-title" className="mt-4 text-[34px] font-semibold leading-[1.05] tracking-[-0.04em] text-ink [text-wrap:balance] sm:text-[48px]">
+              {thesis.title}
+            </h2>
+            <p className="mx-auto mt-6 max-w-[640px] text-lg leading-relaxed text-ink-secondary [text-wrap:balance] sm:text-xl">{thesis.text}</p>
+          </Reveal>
         </section>
 
         <Pillars />
 
-        <Faq content={faq} />
+        <Faq content={faq} layout="split" />
 
-        {/* Closing call to action */}
-        <section aria-labelledby="closing-title" className="border-t border-line px-5 py-20 sm:px-8 sm:py-28">
-          <Reveal className="mx-auto max-w-[760px] text-center">
-            <h2 id="closing-title" className="text-[34px] font-semibold leading-[1.05] tracking-[-0.04em] text-ink sm:text-[48px]">
-              {closing.title}
-            </h2>
-            <p className="mx-auto mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-secondary [text-wrap:balance] sm:text-xl">{closing.text}</p>
-            <a href={closing.ctaHref} className={`${primaryButton} mt-9 h-12 px-7 text-base`}>
-              {closing.ctaLabel}
-            </a>
-          </Reveal>
+        {/* Closing call to action: text left, dark log card right */}
+        <section aria-labelledby="closing-title" className="border-t border-line py-16 sm:py-24">
+          <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+            <Reveal className="min-w-0">
+              <h2 id="closing-title" className="text-[34px] font-semibold leading-[1.05] tracking-[-0.04em] text-ink sm:text-[48px]">
+                {closing.title}
+              </h2>
+              <p className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-secondary sm:text-xl">{closing.text}</p>
+              <a href={closing.ctaHref} className={`${primaryButton} mt-9 h-12 px-7 text-base`}>
+                {closing.ctaLabel}
+              </a>
+            </Reveal>
+            <Reveal className="min-w-0" delay={0.1}>
+              <DarkLog />
+            </Reveal>
+          </div>
         </section>
       </main>
       <Footer />

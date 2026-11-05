@@ -76,7 +76,10 @@ components/
   motion/           Shared animation helpers (looping steps, typing)
   Solutions.tsx     Three audience cards with blue icons
   Faq.tsx           Questions accordion (one open at a time); used on both pages
-  agentic/Pillars.tsx  The three alternating pillars on /agentic-trading (reuse homepage visuals)
+  agentic/Pillars.tsx  The three alternating pillars on /agentic-trading
+  agentic/HeroVisual.tsx  Dark hero card: plan card + shield check
+  agentic/DecisionFlow.tsx  Pillar 2 flowchart: request → check limits → three branches
+  agentic/DarkLog.tsx  Dark log-lines card in the closing section
   Demo.tsx          "See it in action" section
   DemoForm.tsx      Demo form (opens the visitor's email app for now)
   ui.ts             Shared primary button style

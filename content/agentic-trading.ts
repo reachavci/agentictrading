@@ -16,16 +16,31 @@ export const hero = {
     "AI models and standards will keep changing. What users need from an agent that moves money won't: a clear plan, their approval, firm limits and a record of everything.",
   ctaLabel: "Request a demo",
   ctaHref: "/#demo",
+  // Hero visual: a dark card with a plan card and a shield-with-check
+  visual: { planLabel: "Proposed plan", plan: "Buy NVDA · $500 · every Friday" },
 };
 
 export const thesis = {
+  eyebrow: "Why control",
   title: "Build the control layer, not another chatbot",
   text: "Agentic trading is still taking shape. New models, assistants and standards arrive every few months, and you can't build around all of them. What you can build around is control: a layer that turns every request into a plan, checks it against your users' rules, and records what happens.",
 };
 
-// visual must be one of: "plan" (hero chat with plan card), "rules" (limits bar + blocked instruction),
+// visual must be one of: "plan" (hero chat with plan card), "flow" (decision flow),
 // "record" (log lines + pause toggle)
-export type PillarVisual = "plan" | "rules" | "record";
+export type PillarVisual = "plan" | "flow" | "record";
+
+// Pillar 2 visual: a request goes through "Check limits" and ends in one of three branches.
+// tone must be one of: "active" (green), "awaiting" (amber), "blocked" (red)
+export const decisionFlow = {
+  request: "Request: Buy BTC · $8,000",
+  check: "Check limits",
+  branches: [
+    { condition: "Within limits", action: "Execute", tone: "active" },
+    { condition: "Unusual amount", action: "Ask user", tone: "awaiting" },
+    { condition: "Suspicious instruction", action: "Block", tone: "blocked" },
+  ] satisfies { condition: string; action: string; tone: "active" | "awaiting" | "blocked" }[],
+};
 
 export const pillars: { title: string; text: string; bullets: string[]; visual: PillarVisual }[] = [
   {
@@ -38,7 +53,7 @@ export const pillars: { title: string; text: string; bullets: string[]; visual: 
     title: "Keep every agent inside the rules",
     text: "An agent that moves money should never decide what's allowed. Fixed rules, running separately from AI, check every action against the limits users set: budgets, assets and frequency. Unusual amounts go back to the user for confirmation, and suspicious instructions are blocked before they reach an order.",
     bullets: ["Enforce the limits users set", "Flag unusual amounts and block manipulation", "AI reads the data, never changes it"],
-    visual: "rules",
+    visual: "flow",
   },
   {
     title: "Prove every action",
