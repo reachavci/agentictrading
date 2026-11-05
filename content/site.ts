@@ -293,23 +293,27 @@ export type SolutionIcon = "broker" | "exchange" | "bank";
 export const solutions = {
   eyebrow: "Solutions",
   title: "Add agentic trading to your platform",
+  linkLabel: "Learn more", // shown at the bottom of each card; arrow is added automatically
   items: [
     {
       title: "Brokers",
       text: "Let your users trade stocks by chat and voice, under your brand.",
       icon: "broker",
+      href: "/solutions/brokers",
     },
     {
       title: "Crypto exchanges",
       text: "Add AI trading agents with limits, approvals and a full audit trail.",
       icon: "exchange",
+      href: "/solutions/crypto-exchanges",
     },
     {
       title: "Fintechs and banks",
       text: "Offer AI money features where every agent stays within the rules users set.",
       icon: "bank",
+      href: "/solutions/fintechs-and-banks",
     },
-  ] satisfies { title: string; text: string; icon: SolutionIcon }[],
+  ] satisfies { title: string; text: string; icon: SolutionIcon; href: string }[],
 };
 
 // ── Status chips ────────────────────────────────────────────────

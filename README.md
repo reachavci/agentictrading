@@ -25,7 +25,8 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **How it works:** edit `howItWorks` (`text` = intro on the right; each step has a `label`, `chip` and `text`; `chipTone: "approved"` shows the chip in green).
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer). They point to homepage sections as `/#section`, so they work from every page.
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
-- **Solutions:** edit `solutions.items` (`title`, `text`, and `icon`: `"broker"`, `"exchange"` or `"bank"`).
+- **Solutions (homepage cards):** edit `solutions.items` (`title`, `text`, `icon`: `"broker"`, `"exchange"` or `"bank"`, and `href` to its page). The whole card links to the page.
+- **Solution pages:** edit `content/solutions.ts`. All three pages (`/solutions/brokers`, `/solutions/crypto-exchanges`, `/solutions/fintechs-and-banks`) share one template; each entry has the hero, prompts, number band, closing and trust line.
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
 - **Security:** edit `security` (`intro` is the short line under the heading). The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and either 3 `plan` rows (shown for approval) or an `answer` card (`title`, 3 `rows`, `note`) for read-only questions. You can add or remove examples, and the counter adjusts.
@@ -63,6 +64,7 @@ Then run `npx next start` to serve that build at http://localhost:3000.
 app/
   agentic-trading/page.tsx  The /agentic-trading page (hero, thesis, three pillars, FAQ, call to action)
   why-agentic-trading/page.tsx  The essay page (reading layout)
+  solutions/[slug]/page.tsx  Shared template for the three solution pages
   layout.tsx        Fonts, page title, SEO and share-preview tags
   page.tsx          Puts the sections together in order
   globals.css       Base styles and focus outlines
@@ -72,6 +74,9 @@ components/
   HeroPrompts.tsx   Faint floating prompts at the hero's edges
   RotatingVerb.tsx  Rotating verb in the hero line (trade → invest → hedge)
   EssayTeaser.tsx   Essay teaser below the hero
+  CountUp.tsx       Counting numbers (Volume cards, solution pages)
+  solutions/InTheirWords.tsx  Prompt bubbles with "Plan approved ✓" chips
+  solutions/NumberBand.tsx  Large counting number + explanation
   Volume.tsx        "One sentence, months of orders" cards with counting numbers
   HowItWorks.tsx    Four step cards (same card style as Volume)
   FadeCard.tsx      Shared card shell: fade-up stagger on scroll (Volume, How it works, Capabilities)
@@ -100,6 +105,7 @@ components/
 content/
   agentic-trading.ts  ← text for the /agentic-trading page
   why-agentic-trading.ts  ← text for the essay page
+  solutions.ts      ← text for the three solution pages
   site.ts           ← ALL text, prompts, plans and capabilities
 public/
   og-image.png      Share preview image (placeholder)
