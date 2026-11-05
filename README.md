@@ -18,7 +18,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Company name:** change `SITE_NAME = "[LOGGEDIN]"` at the top. It updates the header, page title and share preview.
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header` and `footer` blocks.
-- **Hero:** `hero.title` is the headline. The large line under it is `hero.sublineStart` + rotating `hero.sublineVerbs` + `hero.sublineEnd`; screen readers and search engines read `hero.verbsReadable` ("trade, invest and hedge") in place of the rotating verb. `hero.supporting` is the small line. `hero.floatingPrompts` are the faint prompts at the left and right edges (shown only on screens 1400px and wider, hidden with reduced motion).
+- **Hero:** `hero.title` is the headline. The large line under it is `hero.sublineStart` + rotating `hero.sublineVerbs` + `hero.sublineEnd`; screen readers and search engines read `hero.verbsReadable` ("trade, invest and hedge") in place of the rotating verb. `hero.floatingPrompts` are the faint prompts at the left and right edges (shown only on screens 1400px and wider, hidden with reduced motion).
 - **Essay teaser (under the hero):** edit `essayTeaser` (heading, paragraph and the "Read more" link to `/why-agentic-trading`).
 - **Essay page:** edit `content/why-agentic-trading.ts`. The body is a list of blocks: paragraphs (`"p"`) and bulleted lists (`"list"`).
 - **Volume:** edit `volume` (`stat`, `prompt`, `text` per card). Numbers of 10 or more in a `stat` count up on scroll.
@@ -27,7 +27,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
 - **Solutions:** edit `solutions.items` (`title`, `text`, and `icon`: `"broker"`, `"exchange"` or `"bank"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
-- **Security:** edit `security`. The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
+- **Security:** edit `security` (`intro` is the short line under the heading). The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and either 3 `plan` rows (shown for approval) or an `answer` card (`title`, 3 `rows`, `note`) for read-only questions. You can add or remove examples, and the counter adjusts.
 - **Capabilities:** edit `capabilities.items` (`title`, example `prompt`, `text`, `status` line and `statusTone`: `"active"`, `"awaiting"` or `"answered"`).
 

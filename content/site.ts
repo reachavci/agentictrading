@@ -52,7 +52,6 @@ export const hero = {
   sublineVerbs: ["trade", "invest", "hedge"],
   verbsReadable: "trade, invest and hedge",
   sublineEnd: "by chat and voice",
-  supporting: "Agents do the work. Your users stay in control.",
   // Faint prompts floating at the left and right edges of the hero (wide screens only)
   floatingPrompts: {
     left: ["Buy $200 of SOL", "Stop-loss on NVDA at -8%", "Every Friday: $100 BTC"],
@@ -234,6 +233,7 @@ export type SecurityVisual = "data" | "autonomy" | "limits" | "alert" | "record"
 
 export const security = {
   eyebrow: "Security",
+  intro: "Agents do the work. Your users stay in control.", // short line under the heading
   // Text link under the security cards (arrow is added automatically)
   linkLabel: "See how control works",
   linkHref: "/agentic-trading",

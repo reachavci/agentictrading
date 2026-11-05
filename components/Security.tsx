@@ -9,7 +9,7 @@ export default function Security() {
   const { featured } = security;
   return (
     <section id="security" aria-labelledby="security-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
-      <SectionHeader id="security-title" eyebrow={security.eyebrow} title={security.title} />
+      <SectionHeader id="security-title" eyebrow={security.eyebrow} title={security.title} subtitle={security.intro} />
 
       <div className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8">
         {/* Featured card: animated flow is the main element */}

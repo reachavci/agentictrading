@@ -25,9 +25,8 @@ export default function Hero() {
           <p className="mt-6 text-[22px] font-medium leading-[1.3] tracking-[-0.02em] text-ink [text-wrap:balance] sm:text-[28px] lg:text-[30px]">
             {hero.sublineStart} <RotatingVerb verbs={hero.sublineVerbs} readable={hero.verbsReadable} /> {hero.sublineEnd}
           </p>
-          <p className="mt-4 text-[17px] leading-relaxed text-ink-muted [text-wrap:pretty] sm:text-lg">{hero.supporting}</p>
 
-          <div className="mt-10 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
+          <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
             <a href="#demo" className={`${primaryButton} h-12 px-7 text-base`}>
               {hero.ctaLabel}
             </a>
