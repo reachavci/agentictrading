@@ -81,7 +81,7 @@ export const solutionPages: SolutionPage[] = [
     eyebrow: "Fintechs and banks",
     title: "Your users want more than a balance screen.",
     intro: [
-      "People open their banking app to see where their money went. Then they close it. The saving and investing they keep meaning to do never happens.",
+      "People open their banking app to see where their money went. Then they close it. Most of them mean to save more. Few actually do.",
     ],
     prompts: [
       "Round up every card payment and invest the change.",
@@ -97,7 +97,7 @@ export const solutionPages: SolutionPage[] = [
         "Someone who pays by card twice a day makes about 700 payments a year. With round-ups, that's 700 small investments without a single extra tap. Across 50,000 customers, that's 35 million.",
     },
     closing: [
-      "You can start small. First, agents that only answer questions about spending and savings. When you're ready, let them act, with approvals and the limits your users set.",
+      `You don't have to launch everything at once. Start with an agent that answers questions, like "How much did I spend on food this month?" When you're ready, let it take action too. Users still approve every plan and set their own limits.`,
     ],
   },
 ];
