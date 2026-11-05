@@ -26,7 +26,8 @@ const config: Config = {
         accent: {
           DEFAULT: "#2563EB",
           hover: "#1D4ED8",
-          soft: "#EEF2FF", // highlight backgrounds, subtle chips
+          soft: "#EEF2FF", // highlight backgrounds, subtle chips, secondary buttons
+          "soft-hover": "#E0E7FF",
         },
         // Status colours: strictly for meaning. Green only appears here.
         // Chip text for approved/blocked is one shade darker than the base hue for 4.5:1 contrast.

@@ -1,41 +1,47 @@
 import { hero } from "@/content/site";
 import ChatDemo from "./ChatDemo";
+import HeroPrompts from "./HeroPrompts";
 import RotatingVerb from "./RotatingVerb";
 import { ArrowRightIcon } from "./icons";
-import { primaryButton } from "./ui";
+import { primaryButton, softButton } from "./ui";
 
 export default function Hero() {
   return (
-    <section className="pb-16 pt-12 sm:pb-24 sm:pt-16 lg:pt-24">
-      <div className="mx-auto grid max-w-[1200px] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,540px)] xl:gap-16">
-        {/* Text */}
-        <div className="min-w-0">
-          <h1 className="text-[40px] font-semibold leading-[1.02] tracking-[-0.045em] text-ink [text-wrap:balance] sm:text-[52px] xl:text-[60px]">
+    <section className="relative overflow-hidden pb-16 pt-14 sm:pb-24 sm:pt-20 lg:pt-[120px]">
+      {/* Soft blue-to-white atmosphere behind the headline */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[760px] bg-[radial-gradient(60%_55%_at_50%_28%,theme(colors.accent.soft)_0%,rgba(238,242,255,0.55)_45%,theme(colors.bg)_100%)]"
+      />
+
+      {/* Text (centered). Floating prompts sit beside it on wide screens. */}
+      <div className="relative px-5 sm:px-8">
+        <HeroPrompts />
+        <div className="relative mx-auto flex max-w-[940px] flex-col items-center text-center">
+          <h1 className="text-[40px] font-semibold leading-[1.02] tracking-[-0.045em] text-ink [text-wrap:balance] sm:text-[56px] lg:text-[64px] xl:text-[72px]">
             {hero.title}
           </h1>
-          {/* Large subline with the rotating verb. Screen readers hear
-              "Let your users trade, invest and hedge by chat and voice". */}
-          <p className="mt-6 text-[24px] font-medium leading-[1.25] tracking-[-0.025em] text-ink [text-wrap:balance] sm:text-[30px] xl:text-[34px]">
+          {/* Screen readers hear "Let your users trade, invest and hedge by chat and voice". */}
+          <p className="mt-6 text-[22px] font-medium leading-[1.3] tracking-[-0.02em] text-ink [text-wrap:balance] sm:text-[28px] lg:text-[30px]">
             {hero.sublineStart} <RotatingVerb verbs={hero.sublineVerbs} readable={hero.verbsReadable} /> {hero.sublineEnd}
           </p>
-          <p className="mt-4 text-[17px] leading-relaxed text-ink-muted">{hero.supporting}</p>
+          <p className="mt-4 text-[17px] leading-relaxed text-ink-muted [text-wrap:pretty] sm:text-lg">{hero.supporting}</p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div className="mt-10 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
             <a href="#demo" className={`${primaryButton} h-12 px-7 text-base`}>
               {hero.ctaLabel}
             </a>
-            <a
-              href={hero.secondaryCtaHref}
-              className="group inline-flex items-center gap-1.5 rounded-md text-[15px] font-medium text-accent hover:text-accent-hover"
-            >
+            <a href={hero.secondaryCtaHref} className={`group ${softButton} h-12 px-6 text-base`}>
               {hero.secondaryCtaLabel}
-              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowRightIcon className="h-4 w-4 motion-safe:transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>
         </div>
+      </div>
 
-        {/* Product shot */}
-        <div className="min-w-0 rounded-panel bg-surface p-3 sm:p-8 lg:p-6 xl:p-10">
+      {/* Product window */}
+      <div className="relative mx-auto mt-14 max-w-[848px] px-5 sm:mt-16 sm:px-8">
+        <div className="rounded-panel bg-surface p-3 shadow-[0_30px_80px_-40px_rgba(11,18,32,0.25)] sm:p-8">
           <ChatDemo />
         </div>
       </div>

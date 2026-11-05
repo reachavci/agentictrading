@@ -18,7 +18,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Company name:** change `SITE_NAME = "[LOGGEDIN]"` at the top. It updates the header, page title and share preview.
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header` and `footer` blocks.
-- **Hero:** `hero.title` is the headline. The large line under it is `hero.sublineStart` + rotating `hero.sublineVerbs` + `hero.sublineEnd`; screen readers and search engines read `hero.verbsReadable` ("trade, invest and hedge") in place of the rotating verb. `hero.supporting` is the small line.
+- **Hero:** `hero.title` is the headline. The large line under it is `hero.sublineStart` + rotating `hero.sublineVerbs` + `hero.sublineEnd`; screen readers and search engines read `hero.verbsReadable` ("trade, invest and hedge") in place of the rotating verb. `hero.supporting` is the small line. `hero.floatingPrompts` are the faint prompts at the left and right edges (shown only on screens 1400px and wider, hidden with reduced motion).
 - **Essay teaser (under the hero):** edit `essayTeaser` (heading, paragraph and the "Read more" link to `/why-agentic-trading`).
 - **Essay page:** edit `content/why-agentic-trading.ts`. The body is a list of blocks: paragraphs (`"p"`) and bulleted lists (`"list"`).
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
@@ -67,7 +67,8 @@ app/
   globals.css       Base styles and focus outlines
 components/
   Header.tsx        Sticky header: logo, menu links (active one highlighted), mobile menu, "Request a demo"
-  Hero.tsx          Headline, rotating-verb line, chat card, buttons
+  Hero.tsx          Centered hero: headline, rotating-verb line, buttons, chat card below
+  HeroPrompts.tsx   Faint floating prompts at the hero's edges
   RotatingVerb.tsx  Rotating verb in the hero line (trade → invest → hedge)
   EssayTeaser.tsx   Essay teaser below the hero
   HowItWorks.tsx    Four numbered steps

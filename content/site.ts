@@ -53,6 +53,11 @@ export const hero = {
   verbsReadable: "trade, invest and hedge",
   sublineEnd: "by chat and voice",
   supporting: "Agents do the work. Your users stay in control.",
+  // Faint prompts floating at the left and right edges of the hero (wide screens only)
+  floatingPrompts: {
+    left: ["Buy $200 of SOL", "Stop-loss on NVDA at -8%", "Every Friday: $100 BTC"],
+    right: ["Hedge if USD/TRY > 45", "Rebalance to 60/40", "Take profit on ETH at +30%"],
+  },
   chatLabel: "Agent",
   ctaLabel: "Request a demo",
   secondaryCtaLabel: "Why agentic trading", // arrow is added automatically
