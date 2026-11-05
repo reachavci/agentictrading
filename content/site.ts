@@ -172,13 +172,18 @@ export const volume = {
 export const howItWorks = {
   eyebrow: "How it works",
   title: "From a sentence to a trade",
-  // Shown in order; step numbers (01–04) are added automatically.
+  text: "Users say what they want. The agent turns it into a plan. Nothing runs until they approve it.",
+  // Cards in order. chipTone "approved" shows the chip in the green status style.
   steps: [
-    { title: "Say it", text: 'Users type or speak: "Buy $500 of Nvidia every Friday."' },
-    { title: "Review the plan", text: "The agent shows asset, amount, trigger and limits. If anything is missing, it asks." },
-    { title: "Approve", text: "Your users approve every plan before it runs." },
-    { title: "Track", text: "Every action and check appears in a live feed." },
-  ],
+    { label: "01 Say it", chip: "Buy $500 of Nvidia every Friday.", text: "Users type or speak in plain language." },
+    {
+      label: "02 Review",
+      chip: "Buy NVDA · $500 · every Friday · max $2,000/month",
+      text: "The agent shows asset, amount, trigger and limits. If anything is missing, it asks.",
+    },
+    { label: "03 Approve", chip: "Approved ✓", chipTone: "approved", text: "Your users approve every plan before it runs." },
+    { label: "04 Track", chip: "Friday 15:30 · Order sent", text: "Every action and check appears in a live feed." },
+  ] as { label: string; chip: string; chipTone?: "approved"; text: string }[],
 };
 
 // ── Capabilities ────────────────────────────────────────────────
@@ -188,6 +193,7 @@ export type CapabilityTone = "active" | "awaiting" | "answered";
 export const capabilities = {
   eyebrow: "Capabilities",
   title: "What your users can build",
+  text: "From simple orders to standing plans, all in plain language.",
   items: [
     {
       title: "Price triggers",

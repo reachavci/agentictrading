@@ -22,14 +22,14 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Essay teaser (under the hero):** edit `essayTeaser` (heading, paragraph and the "Read more" link to `/why-agentic-trading`).
 - **Essay page:** edit `content/why-agentic-trading.ts`. The body is a list of blocks: paragraphs (`"p"`) and bulleted lists (`"list"`).
 - **Volume:** edit `volume` (`stat`, `prompt`, `text` per card). Numbers of 10 or more in a `stat` count up on scroll.
-- **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
+- **How it works:** edit `howItWorks` (`text` = intro on the right; each step has a `label`, `chip` and `text`; `chipTone: "approved"` shows the chip in green).
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer). They point to homepage sections as `/#section`, so they work from every page.
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
 - **Solutions:** edit `solutions.items` (`title`, `text`, and `icon`: `"broker"`, `"exchange"` or `"bank"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
 - **Security:** edit `security` (`intro` is the short line under the heading). The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and either 3 `plan` rows (shown for approval) or an `answer` card (`title`, 3 `rows`, `note`) for read-only questions. You can add or remove examples, and the counter adjusts.
-- **Capabilities:** edit `capabilities.items` (`title`, example `prompt`, `text`, `status` line and `statusTone`: `"active"`, `"awaiting"` or `"answered"`).
+- **Capabilities:** edit `capabilities` (`text` = intro on the right) and `capabilities.items` (`title`, example `prompt`, `text`, `status` line and `statusTone`: `"active"`, `"awaiting"` or `"answered"`).
 
 Keep the quotes and commas as they are. If the site fails to build after an edit, a missing quote or comma is the usual cause.
 
@@ -73,7 +73,8 @@ components/
   RotatingVerb.tsx  Rotating verb in the hero line (trade → invest → hedge)
   EssayTeaser.tsx   Essay teaser below the hero
   Volume.tsx        "One sentence, months of orders" cards with counting numbers
-  HowItWorks.tsx    Four numbered steps
+  HowItWorks.tsx    Four step cards (same card style as Volume)
+  FadeCard.tsx      Shared card shell: fade-up stagger on scroll (Volume, How it works, Capabilities)
   Capabilities.tsx  Five capability cards; prompts type out once on scroll
   Security.tsx      Featured flow card + six security cards
   SecurityFlow.tsx  Animated AI plans → User approves → Rules execute
@@ -87,7 +88,7 @@ components/
   agentic/DarkLog.tsx  Dark log-lines card in the closing section
   Demo.tsx          "See it in action" section
   DemoForm.tsx      Demo form (opens the visitor's email app for now)
-  ui.ts             Shared primary button style
+  ui.ts             Shared button styles and the card styles used by Volume, How it works and Capabilities
   SectionHeader.tsx Eyebrow, heading and intro used by each section
   Reveal.tsx        Fade-up when a section scrolls into view
   ChatDemo.tsx      The animated chat (typing → plan → approval loop)

@@ -18,7 +18,7 @@ export default function SectionHeader({ id, eyebrow, title, text, subtitle }: Pr
         </h2>
         {subtitle && <p className="mt-4 text-lg leading-relaxed text-ink-muted [text-wrap:pretty] sm:text-xl">{subtitle}</p>}
       </div>
-      {text && <p className="max-w-[42ch] text-lg leading-relaxed text-ink-secondary [text-wrap:balance] lg:justify-self-end">{text}</p>}
+      {text && <p className="w-full max-w-[42ch] text-lg leading-relaxed text-ink-secondary [text-wrap:balance] lg:justify-self-end">{text}</p>}
     </Reveal>
   );
 }
