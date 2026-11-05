@@ -88,7 +88,7 @@ export const faq = {
 
 export const closing = {
   title: "Start with a pilot",
-  text: "Simulated trading first, in your app, under your brand.",
+  text: "Test it safely in your app, under your brand, before any real money moves.",
   ctaLabel: "Request a demo",
   ctaHref: "/#demo",
 };
