@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { faq } from "@/content/site";
+import { faq as homeFaq } from "@/content/site";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 
@@ -10,7 +10,10 @@ import SectionHeader from "./SectionHeader";
  * Questions are real buttons (Enter/Space toggle); Up/Down/Home/End move between them.
  * Closed answers stay in the HTML (hidden from screen readers and keyboard via `inert`).
  */
-export default function Faq() {
+type FaqContent = { eyebrow: string; title: string; items: { q: string; a: string }[] };
+
+/** Pass `content` to show a different set of questions (defaults to the homepage FAQ). */
+export default function Faq({ content: faq = homeFaq }: { content?: FaqContent }) {
   const [open, setOpen] = useState<number | null>(0);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 

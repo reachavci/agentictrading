@@ -32,14 +32,14 @@ export const seo = {
 // ── Header ──────────────────────────────────────────────────────
 export const header = {
   ctaLabel: "Request a demo",
-  ctaHref: "#demo",
+  ctaHref: "/#demo",
   menuLabel: "Menu",
-  // Menu links; each scrolls to the section with that id.
+  // Menu links; each goes to a section of the homepage (works from any page).
   nav: [
-    { label: "Product", href: "#capabilities" },
-    { label: "Security", href: "#security" },
-    { label: "Solutions", href: "#solutions" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Product", href: "/#capabilities" },
+    { label: "Security", href: "/#security" },
+    { label: "Solutions", href: "/#solutions" },
+    { label: "FAQ", href: "/#faq" },
   ],
 };
 
@@ -147,8 +147,9 @@ export const whyNow = {
   // Heading shown as two lines (same size and colour); line 2 fades in after line 1.
   lines: ["Your users already ask AI about money.", "Now they want it to act."],
   text: "Agents that move money need AI, security and compliance working as one. We built that infrastructure for agentic trading, ready to run in your app, under your brand.",
-  // Placeholder for the essay link (not clickable yet)
-  readLabel: "Read now →",
+  // Link to the agentic trading page
+  linkLabel: "Learn more →",
+  linkHref: "/agentic-trading",
 };
 
 // ── How it works ────────────────────────────────────────────────
@@ -301,10 +302,10 @@ export const footer = {
   tagline: "Agentic trading infrastructure",
   // Footer links; "Request a demo" is added after these automatically.
   nav: [
-    { label: "Product", href: "#capabilities" },
-    { label: "Security", href: "#security" },
-    { label: "Solutions", href: "#solutions" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Product", href: "/#capabilities" },
+    { label: "Security", href: "/#security" },
+    { label: "Solutions", href: "/#solutions" },
+    { label: "FAQ", href: "/#faq" },
   ],
   copyright: `© ${new Date().getFullYear()} ${SITE_NAME}`,
 };

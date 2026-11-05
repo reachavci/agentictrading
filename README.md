@@ -13,15 +13,15 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 
 ## Change the company name or any text
 
-**All text lives in one file: [`content/site.ts`](content/site.ts).** You don't need to touch anything else.
+**All text lives in the content files:** [`content/site.ts`](content/site.ts) for the homepage, header and footer, and [`content/agentic-trading.ts`](content/agentic-trading.ts) for the `/agentic-trading` page. You don't need to touch anything else.
 
 - **Company name:** change `SITE_NAME = "[LOGGEDIN]"` at the top. It updates the header, page title and share preview.
 - **Demo request email:** change `DEMO_EMAIL` near the top. The demo form opens the visitor's email app addressed to it.
 - **Headlines and buttons:** edit the `hero`, `header` and `footer` blocks.
 - **Rotating headline verb:** edit `hero.titleVerbs` (first one is what search engines and screen readers get) plus `hero.titleStart` and `hero.titleEnd`.
-- **Why now:** edit `whyNow` (`lines` = the two heading lines, `text` = the paragraph, `readLabel` = the "Read now →" placeholder).
+- **Why now:** edit `whyNow` (`lines` = the two heading lines, `text` = the paragraph, `linkLabel`/`linkHref` = the "Learn more →" link to `/agentic-trading`).
 - **How it works:** edit `howItWorks.steps`. Step numbers are added automatically.
-- **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer).
+- **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer). They point to homepage sections as `/#section`, so they work from every page.
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
 - **Solutions:** edit `solutions.items` (`title`, `text`, and `icon`: `"broker"`, `"exchange"` or `"bank"`).
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
@@ -59,6 +59,7 @@ Then run `npx next start` to serve that build at http://localhost:3000.
 
 ```
 app/
+  agentic-trading/page.tsx  The /agentic-trading page (hero, thesis, three pillars, FAQ, call to action)
   layout.tsx        Fonts, page title, SEO and share-preview tags
   page.tsx          Puts the sections together in order
   globals.css       Base styles and focus outlines
@@ -74,7 +75,8 @@ components/
   SecurityVisuals.tsx  Small looping animation on each security card
   motion/           Shared animation helpers (looping steps, typing)
   Solutions.tsx     Three audience cards with blue icons
-  Faq.tsx           Questions accordion (one open at a time)
+  Faq.tsx           Questions accordion (one open at a time); used on both pages
+  agentic/Pillars.tsx  The three alternating pillars on /agentic-trading (reuse homepage visuals)
   Demo.tsx          "See it in action" section
   DemoForm.tsx      Demo form (opens the visitor's email app for now)
   ui.ts             Shared primary button style
@@ -88,6 +90,7 @@ components/
   icons.tsx         Shield, arrow, menu and solutions icons
   useReducedMotionSafe.ts  Reads the visitor's "reduce motion" setting
 content/
+  agentic-trading.ts  ← text for the /agentic-trading page
   site.ts           ← ALL text, prompts, plans and capabilities
 public/
   og-image.png      Share preview image (placeholder)

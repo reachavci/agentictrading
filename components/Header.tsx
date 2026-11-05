@@ -5,6 +5,9 @@ import { SITE_NAME, header } from "@/content/site";
 import { CloseIcon, MenuIcon, ShieldCheckIcon } from "./icons";
 import { primaryButton } from "./ui";
 
+/** "/#security" → "#security" */
+const hashOf = (href: string) => href.slice(href.indexOf("#"));
+
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -18,10 +21,11 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Highlight the menu link whose section is in the middle of the screen
+  // Highlight the menu link whose section is in the middle of the screen.
+  // Links look like "/#security"; on pages without that section, nothing is highlighted.
   useEffect(() => {
     const sections = header.nav
-      .map((l) => document.querySelector<HTMLElement>(l.href))
+      .map((l) => document.getElementById(hashOf(l.href).slice(1)))
       .filter((el): el is HTMLElement => el !== null);
     const observer = new IntersectionObserver(
       (entries) => {
@@ -54,7 +58,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-3 px-5 max-[359px]:px-4 sm:px-8">
-        <a href="#top" className="flex shrink-0 items-center gap-2 rounded-md text-[17px] font-semibold tracking-[-0.02em] text-ink max-[359px]:gap-1.5 max-[359px]:text-[15px]">
+        <a href="/" className="flex shrink-0 items-center gap-2 rounded-md text-[17px] font-semibold tracking-[-0.02em] text-ink max-[359px]:gap-1.5 max-[359px]:text-[15px]">
           <ShieldCheckIcon className="h-[22px] w-[22px] max-[359px]:h-5 max-[359px]:w-5" />
           <span>{SITE_NAME}</span>
         </a>
@@ -64,7 +68,7 @@ export default function Header() {
           <nav aria-label="Main" className="hidden md:block">
             <ul className="flex items-center gap-7">
               {header.nav.map((link) => {
-                const isActive = active === link.href;
+                const isActive = active === hashOf(link.href);
                 return (
                   <li key={link.href}>
                     <a
@@ -113,9 +117,9 @@ export default function Header() {
               <a
                 href={link.href}
                 onClick={() => setOpen(false)}
-                aria-current={active === link.href ? "location" : undefined}
+                aria-current={active === hashOf(link.href) ? "location" : undefined}
                 className={`block rounded-md py-3 text-base font-medium ${
-                  active === link.href ? "text-accent" : "text-ink-secondary"
+                  active === hashOf(link.href) ? "text-accent" : "text-ink-secondary"
                 }`}
               >
                 {link.label}

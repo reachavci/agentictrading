@@ -42,10 +42,10 @@ export default function WhyNow() {
         >
           {whyNow.text}
         </motion.p>
-        {/* TODO: turn this into a link to the "From attention to intent" essay once it's published
-            (e.g. <a href="/essays/from-attention-to-intent">). Until then it's plain text, so clicking does nothing. */}
-        <motion.p className="mt-6 text-base font-medium text-accent sm:text-lg" {...fade(whyNow.lines.length)}>
-          {whyNow.readLabel}
+        <motion.p className="mt-6" {...fade(whyNow.lines.length)}>
+          <a href={whyNow.linkHref} className="rounded-md text-base font-medium text-accent transition-colors hover:text-accent-hover sm:text-lg">
+            {whyNow.linkLabel}
+          </a>
         </motion.p>
       </div>
     </section>
