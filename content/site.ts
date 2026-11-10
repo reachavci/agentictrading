@@ -293,6 +293,7 @@ export type SolutionIcon = "broker" | "exchange" | "bank";
 export const solutions = {
   eyebrow: "Solutions",
   title: "Add agentic trading to your platform",
+  text: "One layer for every platform that moves money.",
   linkLabel: "Learn more", // shown at the bottom of each card; arrow is added automatically
   items: [
     {
@@ -340,6 +341,22 @@ export const footer = {
   copyright: `© ${new Date().getFullYear()} ${SITE_NAME}`,
 };
 
+// ── Ownership (after Solutions) ─────────────────────────────────
+export const ownership = {
+  title: "Your users never leave your app",
+  text: "They talk to the agent in your app, under your name. They approve plans on your screens. Their orders run through your systems, and every commission stays with you.",
+  closing: "More orders from the users you already have.",
+  // Phone visual (decorative)
+  visual: {
+    appLabel: "Your app",
+    prompt: "Buy $200 of Nvidia every Friday",
+    planLabel: "Plan",
+    plan: "Buy NVDA · $200 · every Friday",
+    approved: "Approved ✓",
+    caption: `Powered in the background by ${SITE_NAME}`,
+  },
+};
+
 // ── FAQ ─────────────────────────────────────────────────────────
 export const faq = {
   eyebrow: "FAQ",
@@ -353,6 +370,10 @@ export const faq = {
     {
       q: `What is ${SITE_NAME}?`,
       a: `${SITE_NAME} is agentic trading infrastructure for brokers, exchanges and fintechs. It lets their users trade by chat and voice, with security built into every step.`,
+    },
+    {
+      q: "Who owns the customer relationship?",
+      a: "You do. Users sign up with you, talk to the agent in your app and approve plans on your screens. Orders run through your systems, and commissions stay with you.",
     },
     {
       q: "How is it different from a trading bot?",

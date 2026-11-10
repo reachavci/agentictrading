@@ -11,7 +11,7 @@ function Icon({ name }: { name: SolutionIcon }) {
 export default function Solutions() {
   return (
     <section id="solutions" aria-labelledby="solutions-title" className="scroll-mt-16 border-t border-line py-16 sm:py-20">
-      <SectionHeader id="solutions-title" eyebrow={solutions.eyebrow} title={solutions.title} />
+      <SectionHeader id="solutions-title" eyebrow={solutions.eyebrow} title={solutions.title} text={solutions.text} />
 
       <Reveal className="mx-auto mt-10 max-w-[1200px] px-5 sm:px-8" delay={0.08}>
         <ul className="grid gap-4 lg:grid-cols-3">

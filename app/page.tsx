@@ -6,6 +6,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Capabilities from "@/components/Capabilities";
 import Security from "@/components/Security";
 import Solutions from "@/components/Solutions";
+import Ownership from "@/components/Ownership";
 import Faq from "@/components/Faq";
 import Demo from "@/components/Demo";
 import Footer from "@/components/Footer";
@@ -22,6 +23,7 @@ export default function Home() {
         <Capabilities />
         <Security />
         <Solutions />
+        <Ownership />
         <Faq />
         <Demo />
       </main>

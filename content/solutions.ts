@@ -25,7 +25,7 @@ export type SolutionPage = {
   // Number band: `value` counts up; `suffix` (e.g. "+") is added after it
   number: { value: number; suffix?: string; label: string; explanation: string };
   closing?: string[];
-  trust?: string; // shown in a light panel with a shield icon
+  trust?: string; // trust or closing line, shown in a light panel with a shield icon
 };
 
 export const solutionPages: SolutionPage[] = [
@@ -96,9 +96,7 @@ export const solutionPages: SolutionPage[] = [
       explanation:
         "Someone who pays by card twice a day makes about 700 payments a year. With round-ups, that's 700 small investments without a single extra tap. Across 50,000 customers, that's 35 million.",
     },
-    closing: [
-      `You don't have to launch everything at once. Start with an agent that answers questions, like "How much did I spend on food this month?" When you're ready, let it take action too. Users still approve every plan and set their own limits.`,
-    ],
+    trust: `You don't have to launch everything at once. Start with an agent that answers questions, like "How much did I spend on food this month?" When you're ready, let it take action too. Users still approve every plan and set their own limits.`, // closing line, shown in the light panel with the shield
   },
 ];
 

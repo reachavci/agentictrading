@@ -26,6 +26,7 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer). They point to homepage sections as `/#section`, so they work from every page.
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
 - **Solutions (homepage cards):** edit `solutions.items` (`title`, `text`, `icon`: `"broker"`, `"exchange"` or `"bank"`, and `href` to its page). The whole card links to the page.
+- **Ownership (after Solutions):** edit `ownership` (heading, paragraph, closing line and the phone visual's text in `ownership.visual`).
 - **Solution pages:** edit `content/solutions.ts`. All three pages (`/solutions/brokers`, `/solutions/crypto-exchanges`, `/solutions/fintechs-and-banks`) share one template; each entry has the hero, prompts, number band, closing and trust line.
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
 - **Security:** edit `security` (`intro` is the short line under the heading). The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
@@ -86,6 +87,7 @@ components/
   SecurityVisuals.tsx  Small looping animation on each security card
   motion/           Shared animation helpers (looping steps, typing)
   Solutions.tsx     Three audience cards with blue icons
+  Ownership.tsx     "Your users never leave your app" section with the phone visual
   Faq.tsx           Questions accordion (one open at a time); used on both pages
   agentic/Pillars.tsx  The three alternating pillars on /agentic-trading
   agentic/HeroVisual.tsx  Dark hero card: plan card + shield check

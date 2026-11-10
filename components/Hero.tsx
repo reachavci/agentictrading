@@ -1,4 +1,4 @@
-import { hero } from "@/content/site";
+import { header, hero } from "@/content/site";
 import ChatDemo from "./ChatDemo";
 import HeroPrompts from "./HeroPrompts";
 import RotatingVerb from "./RotatingVerb";
@@ -27,7 +27,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <a href="#demo" className={`${primaryButton} h-12 px-7 text-base`}>
+            <a href={header.ctaHref} className={`${primaryButton} h-12 px-7 text-base`}>
               {hero.ctaLabel}
             </a>
             <a href={hero.secondaryCtaHref} className={`group ${softButton} h-12 px-6 text-base`}>

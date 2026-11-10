@@ -30,7 +30,7 @@ export default function InTheirWords({ prompts }: { prompts: string[] }) {
   }, [inView, reduce, prompts]);
 
   const all = reduce === true;
-  const fade = (on: boolean) => `transition-[opacity,transform] duration-500 ease-out ${on ? "translate-y-0 opacity-100" : "translate-y-1.5 opacity-0"}`;
+  const fade = (on: boolean) => `motion-safe:transition-[opacity,transform] motion-safe:duration-500 motion-safe:ease-out ${on ? "translate-y-0 opacity-100" : "translate-y-1.5 opacity-0"}`;
 
   return (
     <ol ref={ref} className="mx-auto flex max-w-[720px] flex-col gap-5 rounded-panel bg-surface p-5 sm:p-10">
