@@ -72,6 +72,17 @@ export type ChatExample =
   | { prompt: string; plan: PlanRow[] }
   | { prompt: string; answer: { title: string; rows: PlanRow[]; note: string } };
 
+// Read-only answer card for "How is my portfolio doing this month?" (used by the loop and the "Try" chips)
+const portfolioAnswer = {
+  title: "Portfolio summary",
+  rows: [
+    { label: "This month", value: "+3.2%" },
+    { label: "Top mover", value: "NVDA +8.1%" },
+    { label: "Cash", value: "$4,200" },
+  ],
+  note: "Read-only · no action taken",
+};
+
 // Shown one after another in the hero chat card, then it loops.
 export const chatExamples: ChatExample[] = [
   {
@@ -101,15 +112,7 @@ export const chatExamples: ChatExample[] = [
   {
     // Question, not a trade: the agent answers and takes no action.
     prompt: "How is my portfolio doing this month?",
-    answer: {
-      title: "Portfolio summary",
-      rows: [
-        { label: "This month", value: "+3.2%" },
-        { label: "Top mover", value: "NVDA +8.1%" },
-        { label: "Cash", value: "$4,200" },
-      ],
-      note: "Read-only · no action taken",
-    },
+    answer: portfolioAnswer,
   },
   {
     prompt: "Set a 10% stop-loss on Tesla",
@@ -287,34 +290,35 @@ export const security = {
 };
 
 // ── Solutions ───────────────────────────────────────────────────
-// icon must be one of: "broker" (chart line), "exchange" (coin), "bank" (bank building)
-export type SolutionIcon = "broker" | "exchange" | "bank";
-
 export const solutions = {
   eyebrow: "Solutions",
   title: "Add agentic trading to your platform",
   text: "One layer for every platform that moves money.",
   linkLabel: "Learn more", // shown at the bottom of each card; arrow is added automatically
+  // Each card: small label, headline, a big number that counts up on scroll, one line, and a link.
   items: [
     {
-      title: "Brokers",
-      text: "Let your users trade stocks by chat and voice, under your brand.",
-      icon: "broker",
+      label: "Brokers",
+      headline: "Your users already know what they want to buy.",
+      number: { value: 40, label: "orders a year from one dividend plan" },
+      text: "Stocks and ETFs by chat and voice, under your brand.",
       href: "/solutions/brokers",
     },
     {
-      title: "Crypto exchanges",
-      text: "Add AI trading agents with limits, approvals and a full audit trail.",
-      icon: "exchange",
+      label: "Crypto exchanges",
+      headline: "Crypto never closes. Your users have to sleep.",
+      number: { value: 30, suffix: "+", label: "orders a month from one rule" },
+      text: "Agents watch the market day and night, within each user's limits.",
       href: "/solutions/crypto-exchanges",
     },
     {
-      title: "Fintechs and banks",
-      text: "Offer AI money features where every agent stays within the rules users set.",
-      icon: "bank",
+      label: "Fintechs and banks",
+      headline: "Your users want more than a balance screen.",
+      number: { value: 700, label: "small investments a year from round-ups" },
+      text: "Saving and investing that happen inside your app.",
       href: "/solutions/fintechs-and-banks",
     },
-  ] satisfies { title: string; text: string; icon: SolutionIcon; href: string }[],
+  ] as { label: string; headline: string; number: { value: number; suffix?: string; label: string }; text: string; href: string }[],
 };
 
 // ── Status chips ────────────────────────────────────────────────
@@ -413,4 +417,43 @@ export const demo = {
   confirmTitle: "Thanks, your email is ready to send",
   confirmText: "Your email app should have opened with your details. Press send and we'll get back to you.",
   confirmFallback: "Nothing opened? Email us directly at",
+};
+
+// ── Hero chat "Try it" (homepage only) ──────────────────────────
+// Clicking a sample pauses the automatic loop and plays it. No real AI: typed text gets `freeTextReply`.
+export const tryDemo = {
+  label: "Try:",
+  chipsLabel: "Sample commands", // for screen readers
+  inputLabel: "Message the agent", // for screen readers
+  approveLabel: "Approve",
+  savedLine: "Plan saved · runs within your limits",
+  freeTextReply: "This demo uses sample commands. Pick one above, or request a demo to try your own.",
+  resumeAfterMs: 15000, // automatic loop resumes after this long without interaction
+  samples: [
+    {
+      prompt: "Buy $200 of Nvidia every Friday",
+      plan: [
+        { label: "Action", value: "Buy NVDA · $200" },
+        { label: "Trigger", value: "Every Friday, market open" },
+        { label: "Limit", value: "Max $1,000 / month" },
+      ],
+    },
+    {
+      prompt: "If BTC drops 5% overnight, buy $300",
+      plan: [
+        { label: "Action", value: "Buy BTC · $300" },
+        { label: "Trigger", value: "BTC down 5% overnight" },
+        { label: "Limit", value: "Once · expires in 30 days" },
+      ],
+    },
+    {
+      prompt: "Sell half my Tesla if it falls 10%",
+      plan: [
+        { label: "Action", value: "Sell 50% TSLA" },
+        { label: "Trigger", value: "10% below average cost" },
+        { label: "Limit", value: "Notify on trigger" },
+      ],
+    },
+    { prompt: "How is my portfolio doing this month?", answer: portfolioAnswer },
+  ] as ChatExample[],
 };

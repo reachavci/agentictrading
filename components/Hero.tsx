@@ -41,7 +41,7 @@ export default function Hero() {
       {/* Product window */}
       <div className="relative mx-auto mt-14 max-w-[848px] px-5 sm:mt-16 sm:px-8">
         <div className="rounded-panel bg-surface p-3 shadow-[0_30px_80px_-40px_rgba(11,18,32,0.25)] sm:p-8">
-          <ChatDemo />
+          <ChatDemo interactive />
         </div>
       </div>
     </section>

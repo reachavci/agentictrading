@@ -25,12 +25,13 @@ prerendered as static HTML at build time, so it's fast and cheap to host on Verc
 - **How it works:** edit `howItWorks` (`text` = intro on the right; each step has a `label`, `chip` and `text`; `chipTone: "approved"` shows the chip in green).
 - **Menu links:** edit `header.nav` (top menu) and `footer.nav` (footer). They point to homepage sections as `/#section`, so they work from every page.
 - **FAQ:** edit `faq.items` (`q` = question, `a` = answer).
-- **Solutions (homepage cards):** edit `solutions.items` (`title`, `text`, `icon`: `"broker"`, `"exchange"` or `"bank"`, and `href` to its page). The whole card links to the page.
+- **Solutions (homepage cards):** edit `solutions.items` (`label`, `headline`, `number` with `value`/`suffix`/`label`, `text`, and `href` to its page). The number counts up on scroll; the whole card links to the page.
 - **Ownership (after Solutions):** edit `ownership` (heading, paragraph, closing line and the phone visual's text in `ownership.visual`).
 - **Solution pages:** edit `content/solutions.ts`. All three pages (`/solutions/brokers`, `/solutions/crypto-exchanges`, `/solutions/fintechs-and-banks`) share one template; each entry has the hero, prompts, number band, closing and trust line.
 - **Demo form:** edit `demo` (heading, field labels, button and confirmation text).
 - **Security:** edit `security` (`intro` is the short line under the heading). The `featured` block is the animated flow card (`flow` steps, `note` line, and the animation text: `example`, `awaiting`, `approved`, `result`). Each of the six `items` has a `visual` (from the list in the comment); the text inside those small animations is in `security.visuals`.
 - **Chat examples:** edit `chatExamples`. Each one has a `prompt` and either 3 `plan` rows (shown for approval) or an `answer` card (`title`, 3 `rows`, `note`) for read-only questions. You can add or remove examples, and the counter adjusts.
+- **"Try it" in the hero:** edit `tryDemo`: the `Try:` label, the four `samples` (same format as chat examples), the `Approve` button, the saved line, the reply to free text and `resumeAfterMs` (how long without interaction before the automatic loop restarts; 15000 = 15 seconds).
 - **Capabilities:** edit `capabilities` (`text` = intro on the right) and `capabilities.items` (`title`, example `prompt`, `text`, `status` line and `statusTone`: `"active"`, `"awaiting"` or `"answered"`).
 
 Keep the quotes and commas as they are. If the site fails to build after an edit, a missing quote or comma is the usual cause.
@@ -86,7 +87,7 @@ components/
   SecurityFlow.tsx  Animated AI plans → User approves → Rules execute
   SecurityVisuals.tsx  Small looping animation on each security card
   motion/           Shared animation helpers (looping steps, typing)
-  Solutions.tsx     Three audience cards with blue icons
+  Solutions.tsx     Three audience cards: label, headline, counting number, link
   Ownership.tsx     "Your users never leave your app" section with the phone visual
   Faq.tsx           Questions accordion (one open at a time); used on both pages
   agentic/Pillars.tsx  The three alternating pillars on /agentic-trading
@@ -98,11 +99,11 @@ components/
   ui.ts             Shared button styles and the card styles used by Volume, How it works and Capabilities
   SectionHeader.tsx Eyebrow, heading and intro used by each section
   Reveal.tsx        Fade-up when a section scrolls into view
-  ChatDemo.tsx      The animated chat (typing → plan → approval loop)
+  ChatDemo.tsx      The animated chat (typing → plan → approval loop); in the hero also "Try:" chips, a real input and an Approve button
   PlanCard.tsx      "Proposed plan" box
   StatusChip.tsx    Active / Awaiting approval / Paused / Blocked / Approved
   Footer.tsx        Name, tagline, section links, demo link, copyright
-  icons.tsx         Shield, arrow, menu and solutions icons
+  icons.tsx         Shield, arrow and menu icons
   useReducedMotionSafe.ts  Reads the visitor's "reduce motion" setting
 content/
   agentic-trading.ts  ← text for the /agentic-trading page

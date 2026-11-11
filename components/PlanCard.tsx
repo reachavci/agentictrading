@@ -24,7 +24,7 @@ export default function PlanCard({ title, rows, footer, renderRow }: Props) {
           return renderRow ? renderRow(row, i, content) : <div key={row.label}>{content}</div>;
         })}
       </dl>
-      <div className="mt-2 flex h-6 items-center">{footer}</div>
+      <div className="mt-2 flex min-h-6 items-center">{footer}</div>
     </div>
   );
 }
